@@ -1,24 +1,50 @@
 import './App.css';
 
-import styled, {createGlobalStyle} from 'styled-components';
+import styled, {ThemeProvider, createGlobalStyle} from 'styled-components';
+
+import { useState } from 'react';
 
 const GlobalStyle = createGlobalStyle`
   body {
     background: orange;
   }
 `
+
+const mainTheme = {
+  main: '#F7157B'
+}
+const darkTheme = {
+  main: '#000000'
+}
+
+
 const MyButton = styled.a`
   color: white;
-  background: red;
+  background: ${props => props.theme.main};
+`
+const ThemeChanger = styled.button`
 `
 
+
+
 function App() {
+  const [actualTheme, setActualTheme] = useState(mainTheme)
+
+  const handleTheme = () => {
+    actualTheme === mainTheme ? setActualTheme(darkTheme) : setActualTheme(mainTheme)
+  }
+
   return (
     <div className="App">
-      <GlobalStyle />
-      <MyButton>
-        hola
-      </MyButton>
+      <ThemeProvider theme={actualTheme}>
+        <GlobalStyle />
+        <MyButton>
+          hola
+        </MyButton>
+        <ThemeChanger onClick={handleTheme}>
+          cambiar tema
+        </ThemeChanger>
+      </ThemeProvider>
     </div>
   );
 }
