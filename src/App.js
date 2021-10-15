@@ -1,13 +1,24 @@
 import './App.css';
 
-import logo from './logo.svg';
+import styled, {createGlobalStyle} from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background: orange;
+  }
+`
+const MyButton = styled.a`
+  color: white;
+  background: red;
+`
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <GlobalStyle />
+      <MyButton>
         hola
-      </header>
+      </MyButton>
     </div>
   );
 }
