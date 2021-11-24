@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { useState } from 'react';
 
 const Main = styled.main`
-  min-height: 100vh;
+  min-height: calc(100vh - 76px);
   display: flex;
+  flex-wrap: wrap;
 `
 
 const MainDescription = styled.article`
@@ -13,9 +14,10 @@ const MainDescription = styled.article`
   align-items: flex-end;
   width: 100%;
   max-width: 420px;
-  margin-top: 20%;
   text-align: right;
   padding: 0 20px;
+  position: relative;
+  z-index: 2;
 `
 
 const Title = styled.h1`
@@ -44,6 +46,49 @@ const Katakana = styled.span`
   opacity: 0.5;
 `
 
+const MainMountainContainer = styled.section`
+  display: flex;
+  width: 100%;
+  margin-top: 20%;
+  position: relative;
+`
+
+const Mountain = styled.div`
+  display: flex;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+`
+
+const BigMountain = styled.img`
+  z-index: 2;
+`
+
+const LilMountain = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  bottom: 0;
+  margin-bottom: 150px;
+  position: absolute;
+`
+
+const LowerMountain = styled.div`
+  display: flex;
+  width: 100%;
+  align-self: flex-end;
+  bottom: 0;
+  position: absolute;
+`
+
+const Logo = styled.img`
+  position: absolute;
+  z-index: 1;
+  width: 80px;
+  left: 44%;
+  top: 12%;
+`
+
 function Home() {
 
   return (
@@ -51,18 +96,29 @@ function Home() {
       <Katakana>
         マゼンタ
       </Katakana>
-      <MainDescription>
-        <Title>
-          where <b>talent</b> is the client
-        </Title>
-        <Text>
-          We focus on creating the best professional development for senior engineers who seek to reach their next level,professionally and in their lives.
-        </Text>
-        <MainButton>
-          I want to know more
-        </MainButton>
-      </MainDescription>
-
+      <MainMountainContainer>
+        <Mountain>
+          <Logo src="/magentalogo.png" alt="Magenta logo"/>
+          <BigMountain src="/main-mountain.png" alt="big mountain"/>
+        </Mountain>
+        <MainDescription>
+          <Title>
+            where <b>talent</b> is the client
+          </Title>
+          <Text>
+            We focus on creating the best professional development for senior engineers who seek to reach their next level,professionally and in their lives.
+          </Text>
+          <MainButton>
+            I want to know more
+          </MainButton>
+        </MainDescription>
+      </MainMountainContainer>
+      <LilMountain>
+        <img src="/lil-mountain.png" alt="small mountain"/>
+      </LilMountain>
+      <LowerMountain>
+        <img src="/lower-mountain.png" alt="lower mountain"/>
+      </LowerMountain> 
     </Main>
   );
 }
