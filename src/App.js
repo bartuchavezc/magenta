@@ -66,7 +66,8 @@ const GlobalStyle = createGlobalStyle`
 
 const mainTheme = {
   background: '#F4F4F4',
-  main: "#F7157B"
+  main: "#F7157B",
+  h1: "#606060"
 }
 
 function App() {

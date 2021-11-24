@@ -23,7 +23,7 @@ const Item = styled.li`
   }
 `
 
-const JoinUs = styled.button`
+export const MainButton = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -57,9 +57,9 @@ function Home() {
           our process
         </Item> */}
         <Item>
-          <JoinUs>
+          <MainButton>
             join us
-          </JoinUs>
+          </MainButton>
         </Item>
       </Container>
     </Nav>
