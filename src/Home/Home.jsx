@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 
 const Main = styled.main`
-  min-height: calc(100vh - 76px);
+  min-height: calc(100vh - 117px);
   display: flex;
   flex-wrap: wrap;
 `

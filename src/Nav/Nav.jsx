@@ -6,6 +6,9 @@ const Nav = styled.nav`
   padding: 0px;
   width: 100%;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 9;
 `
 
 const Container = styled.ul`
@@ -36,6 +39,11 @@ export const MainButton = styled.button`
   cursor: pointer;
 `
 
+const Logo = styled.img`
+  height: 100px;
+  margin-top: -25px;
+`
+
 function Home() {
 
   return (
@@ -47,11 +55,14 @@ function Home() {
         <Item>
           what we do
         </Item>
-        {/* <Item>
-          who we are
+        <Item>
+          <Logo src="/magentafulllogo.png" alt="Magenta logo"/>
         </Item>
         <Item>
          our services
+        </Item>
+        {/* <Item>
+          who we are
         </Item>
         <Item>
           our process
