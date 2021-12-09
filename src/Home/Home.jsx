@@ -1,6 +1,5 @@
 import { MainButton } from '../Nav/Nav';
 import styled from 'styled-components';
-import { useState } from 'react';
 
 const Main = styled.main`
   min-height: calc(100vh - 117px);

@@ -71,7 +71,7 @@ const mainTheme = {
 }
 
 function App() {
-  const [actualTheme, setActualTheme] = useState(mainTheme)
+  const [actualTheme] = useState(mainTheme)
 
   return (
     <div className="App">
