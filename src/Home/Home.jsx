@@ -1,5 +1,7 @@
+import styled, { createGlobalStyle } from 'styled-components';
+
 import { MainButton } from '../Nav/Nav';
-import styled from 'styled-components';
+import { Parallax } from 'react-parallax';
 import { useState } from 'react';
 
 const Main = styled.main`
@@ -89,16 +91,35 @@ const Logo = styled.img`
   top: 12%;
 `
 
+const Global = createGlobalStyle()`
+  .custom {
+    background: red;
+    overflow: visible;
+  }
+`
+
 function Home() {
 
   return (
     <Main>
+      <Global />
       <Katakana>
         マゼンタ
       </Katakana>
       <MainMountainContainer>
         <Mountain>
-          <Logo src="/magentalogo.png" alt="Magenta logo"/>
+          <Parallax
+            className={'custom'}
+            renderLayer={percentage => (
+              <Logo
+                style={{
+                  transform: `translateY(-${percentage * 100}px)`
+                }}
+                src="/magentalogo.png" alt="Magenta logo"
+              />
+            )}
+          >
+          </Parallax>
           <BigMountain src="/main-mountain.png" alt="big mountain"/>
         </Mountain>
         <MainDescription>

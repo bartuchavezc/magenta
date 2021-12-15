@@ -79,6 +79,24 @@ function App() {
         <GlobalStyle />
         <Nav />
         <Home />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
       </ThemeProvider>
     </div>
   );
