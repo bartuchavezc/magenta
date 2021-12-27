@@ -5,7 +5,7 @@ import { Parallax } from 'react-parallax';
 import { useState } from 'react';
 
 const Main = styled.main`
-  min-height: calc(100vh - 117px);
+  min-height: calc(200vh - 117px);
   display: flex;
   flex-wrap: wrap;
 `
@@ -52,7 +52,6 @@ const MainMountainContainer = styled.section`
   display: flex;
   width: 100%;
   margin-top: 20%;
-  position: relative;
 `
 
 const Mountain = styled.div`
@@ -64,6 +63,7 @@ const Mountain = styled.div`
 
 const BigMountain = styled.img`
   z-index: 2;
+  transition: 0.4s ease;
 `
 
 const LilMountain = styled.div`
@@ -84,17 +84,22 @@ const LowerMountain = styled.div`
 `
 
 const Logo = styled.img`
-  position: absolute;
   z-index: 1;
   width: 80px;
-  left: 44%;
-  top: 12%;
+  transition: 0.4s ease;
 `
 
-const Global = createGlobalStyle()`
+const Global = createGlobalStyle`
   .custom {
-    background: red;
-    overflow: visible;
+    overflow: visible !important;
+    left: 49%;
+    margin-top: 0px;
+    will-change: transform;
+
+  }
+  .mountain {
+    overflow: visible !important;
+    will-change: transform;
   }
 `
 
@@ -113,14 +118,22 @@ function Home() {
             renderLayer={percentage => (
               <Logo
                 style={{
-                  transform: `translateY(-${percentage * 100}px)`
+                  transform: `translateY(${Math.floor(percentage * 300)}px) scale(${(percentage * 1.5).toFixed(1)})`
                 }}
                 src="/magentalogo.png" alt="Magenta logo"
               />
             )}
           >
           </Parallax>
-          <BigMountain src="/main-mountain.png" alt="big mountain"/>
+          <Parallax
+            className={'mountain'}
+            renderLayer={percentage => (
+              <BigMountain style={{
+                transform: `scale(${(percentage * 1.7).toFixed(1)}) translateY(${Math.floor(percentage * 150)}px)`
+              }} src="/main-mountain.png" alt="big mountain"/>
+            )}
+          >
+          </Parallax>
         </Mountain>
         <MainDescription>
           <Title>
