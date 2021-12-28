@@ -8,19 +8,28 @@ const Main = styled.main`
   min-height: calc(200vh - 117px);
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  overflow-x: hidden;
+`
+
+const Scene = styled.section`
+  height: calc(100vh - 117px);
+  position: relative;
+  width: 100%;
 `
 
 const MainDescription = styled.article`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 100%;
+  /* width: 100%; */
   max-width: 420px;
   text-align: right;
   padding: 0 20px;
-  position: relative;
   z-index: 2;
   margin-left: 10%;
+  position: absolute;
+  top: 20%;
 `
 
 const Title = styled.h1`
@@ -41,7 +50,7 @@ const Text = styled.p`
 const Katakana = styled.span`
   font-size: 200px;
   color: white;
-  position: absolute;
+  margin-top: 0%;
   z-index: 1;
   display: flex;
   width: 100%;
@@ -52,7 +61,6 @@ const Katakana = styled.span`
 const MainMountainContainer = styled.section`
   display: flex;
   width: 100%;
-  margin-top: 20%;
 `
 
 const Mountain = styled.div`
@@ -60,7 +68,7 @@ const Mountain = styled.div`
   position: absolute;
   z-index: 1;
   right: -8%;
-  top: 25%;
+  top: 0;
 `
 
 const BigMountain = styled.img`
@@ -70,21 +78,22 @@ const BigMountain = styled.img`
 
 const LilMountain = styled.div`
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   justify-content: flex-end;
   bottom: 10%;
+  right: 0;
   margin-bottom: 150px;
   position: absolute;
 `
 
 const LowerMountain = styled.div`
   display: flex;
-  width: 100%;
+  /* width: 100%; */
   align-self: flex-end;
   bottom: 0;
   position: absolute;
   bottom: 10%;
-  left: 10%;
+  left: 5%;
 `
 
 const Logo = styled.img`
@@ -117,78 +126,133 @@ const Global = createGlobalStyle`
   }
 `
 
+const Clouds = styled.ul`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  z-index: 1;
+`
+
+const CloudItem = styled.li`
+  position: relative;
+  height: 420px;
+  width: 720px;
+  img {
+    height: 100%;
+  }
+  img:nth-child(2) {
+    transform: rotateY(-180deg) translateX(-100%);
+    position: absolute;
+    top: 0;
+    left: -100%;
+  }
+  animation: cloud 5s cubic-bezier(0.78, 0.66, 0.38, 0.3) infinite;
+  @keyframes cloud {
+    0%{
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(-150%);
+    }
+  }
+`
+
 function Home() {
 
   return (
     <Main>
       <Global />
-      <Katakana>
-        マゼンタ
-      </Katakana>
-      <MainMountainContainer>
-        <Mountain>
+      <Scene>
+        <Katakana>
+          マゼンタ
+        </Katakana>
+        <MainMountainContainer>
+          <Mountain>
+            <Parallax
+              className={'logo-main-mountain'}
+              renderLayer={percentage => (
+                <Logo
+                  style={{
+                    transform: `translateY(${Math.floor(percentage * 220)}px) scale(${(percentage * 1.2).toFixed(1)})`
+                  }}
+                  src="/magentalogo.png" alt="Magenta logo"
+                />
+              )}
+            >
+            </Parallax>
+            <Parallax
+              className={'mountain'}
+              renderLayer={percentage => (
+                <BigMountain style={{
+                  transform: `scale(${(percentage * 1.2).toFixed(1)}) translateY(${Math.floor(percentage * 150)}px)`
+                }} src="/main-mountain.png" alt="big mountain"/>
+              )}
+            >
+            </Parallax>
+          </Mountain>
+          <MainDescription>
+            <Title>
+            where <b>talent</b> is the client
+            </Title>
+            <Text>
+            We focus on creating the best professional development for senior engineers who seek to reach their next level,professionally and in their lives.
+            </Text>
+            <MainButton>
+            I want to know more
+            </MainButton>
+          </MainDescription>
+        </MainMountainContainer>
+        <LilMountain   
+        >
           <Parallax
-            className={'logo-main-mountain'}
+            className={'small-mountain'}
             renderLayer={percentage => (
-              <Logo
+              <img 
                 style={{
-                  transform: `translateY(${Math.floor(percentage * 220)}px) scale(${(percentage * 1.2).toFixed(1)})`
-                }}
-                src="/magentalogo.png" alt="Magenta logo"
+                  transform: `translateY(${Math.floor(percentage * 400)}px) translateX(${Math.floor(percentage * 400)}px)`
+                }} 
+                src="/lil-mountain.png" alt="small mountain"
               />
             )}
           >
           </Parallax>
+        </LilMountain>
+
+        <LowerMountain>
           <Parallax
-            className={'mountain'}
+            className={'lower-mountain'}
             renderLayer={percentage => (
-              <BigMountain style={{
-                transform: `scale(${(percentage * 1.2).toFixed(1)}) translateY(${Math.floor(percentage * 150)}px)`
-              }} src="/main-mountain.png" alt="big mountain"/>
+              <img  style={{
+                transform: `translateY(${Math.floor(percentage * 400)}px) translateX(-${Math.floor(percentage * 400)}px)`
+              }} 
+              src="/lower-mountain.png" alt="lower mountain"/>
             )}
           >
           </Parallax>
-        </Mountain>
-        <MainDescription>
-          <Title>
-            where <b>talent</b> is the client
-          </Title>
-          <Text>
-            We focus on creating the best professional development for senior engineers who seek to reach their next level,professionally and in their lives.
-          </Text>
-          <MainButton>
-            I want to know more
-          </MainButton>
-        </MainDescription>
-      </MainMountainContainer>
-      <LilMountain   
-      >
-        <Parallax
-          className={'small-mountain'}
-          renderLayer={percentage => (
-            <img 
-              style={{
-                transform: `translateY(${Math.floor(percentage * 400)}px) translateX(${Math.floor(percentage * 400)}px)`
-              }} 
-              src="/lil-mountain.png" alt="small mountain"
-            />
-          )}
-        >
-        </Parallax>
-      </LilMountain>
+        </LowerMountain> 
 
-      <LowerMountain>
-        <Parallax
-          className={'lower-mountain'}
-          renderLayer={percentage => (
-            <img  style={{
-              transform: `translateY(${Math.floor(percentage * 400)}px) translateX(-${Math.floor(percentage * 400)}px)`
-            }} 
-            src="/lower-mountain.png" alt="lower mountain"/>
-          )}
-        >
-        </Parallax>
-      </LowerMountain> 
+        <Clouds>
+          <CloudItem>
+            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud"/>
+          </CloudItem>
+          <CloudItem>
+            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud"/>
+          </CloudItem>
+          <CloudItem>
+            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud"/>
+          </CloudItem>        
+          <CloudItem>
+            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud"/>
+          </CloudItem>
+          
+        </Clouds>
+      </Scene>
+
     </Main>
   );
 }
