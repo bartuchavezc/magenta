@@ -20,6 +20,7 @@ const MainDescription = styled.article`
   padding: 0 20px;
   position: relative;
   z-index: 2;
+  margin-left: 10%;
 `
 
 const Title = styled.h1`
@@ -57,20 +58,21 @@ const MainMountainContainer = styled.section`
 const Mountain = styled.div`
   display: flex;
   position: absolute;
-  right: 0;
   z-index: 1;
+  right: -8%;
+  top: 25%;
 `
 
 const BigMountain = styled.img`
   z-index: 2;
-  transition: 0.4s ease;
+  transition: .2s ease;
 `
 
 const LilMountain = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  bottom: 0;
+  bottom: 10%;
   margin-bottom: 150px;
   position: absolute;
 `
@@ -81,16 +83,18 @@ const LowerMountain = styled.div`
   align-self: flex-end;
   bottom: 0;
   position: absolute;
+  bottom: 10%;
+  left: 10%;
 `
 
 const Logo = styled.img`
   z-index: 1;
   width: 80px;
-  transition: 0.4s ease;
+  transition: 0.2s ease;
 `
 
 const Global = createGlobalStyle`
-  .custom {
+  .logo-main-mountain {
     overflow: visible !important;
     left: 49%;
     margin-top: 0px;
@@ -100,6 +104,16 @@ const Global = createGlobalStyle`
   .mountain {
     overflow: visible !important;
     will-change: transform;
+  }
+  .small-mountain, .lower-mountain {
+    overflow: visible !important;
+    will-change: transform;
+    img {
+      transition: 0.2s ease;
+    }
+  }
+  .lower-mountain {
+    left: -2%;
   }
 `
 
@@ -114,11 +128,11 @@ function Home() {
       <MainMountainContainer>
         <Mountain>
           <Parallax
-            className={'custom'}
+            className={'logo-main-mountain'}
             renderLayer={percentage => (
               <Logo
                 style={{
-                  transform: `translateY(${Math.floor(percentage * 300)}px) scale(${(percentage * 1.5).toFixed(1)})`
+                  transform: `translateY(${Math.floor(percentage * 220)}px) scale(${(percentage * 1.2).toFixed(1)})`
                 }}
                 src="/magentalogo.png" alt="Magenta logo"
               />
@@ -129,7 +143,7 @@ function Home() {
             className={'mountain'}
             renderLayer={percentage => (
               <BigMountain style={{
-                transform: `scale(${(percentage * 1.7).toFixed(1)}) translateY(${Math.floor(percentage * 150)}px)`
+                transform: `scale(${(percentage * 1.2).toFixed(1)}) translateY(${Math.floor(percentage * 150)}px)`
               }} src="/main-mountain.png" alt="big mountain"/>
             )}
           >
@@ -147,11 +161,33 @@ function Home() {
           </MainButton>
         </MainDescription>
       </MainMountainContainer>
-      <LilMountain>
-        <img src="/lil-mountain.png" alt="small mountain"/>
+      <LilMountain   
+      >
+        <Parallax
+          className={'small-mountain'}
+          renderLayer={percentage => (
+            <img 
+              style={{
+                transform: `translateY(${Math.floor(percentage * 400)}px) translateX(${Math.floor(percentage * 400)}px)`
+              }} 
+              src="/lil-mountain.png" alt="small mountain"
+            />
+          )}
+        >
+        </Parallax>
       </LilMountain>
+
       <LowerMountain>
-        <img src="/lower-mountain.png" alt="lower mountain"/>
+        <Parallax
+          className={'lower-mountain'}
+          renderLayer={percentage => (
+            <img  style={{
+              transform: `translateY(${Math.floor(percentage * 400)}px) translateX(-${Math.floor(percentage * 400)}px)`
+            }} 
+            src="/lower-mountain.png" alt="lower mountain"/>
+          )}
+        >
+        </Parallax>
       </LowerMountain> 
     </Main>
   );
