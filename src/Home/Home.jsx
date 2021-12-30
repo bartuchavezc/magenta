@@ -28,7 +28,7 @@ const MainDescription = styled.article`
   z-index: 2;
   margin-left: 10%;
   position: absolute;
-  top: 20%;
+  top: 30%;
 `
 
 const Title = styled.h1`
@@ -67,7 +67,7 @@ const Mountain = styled.div`
   position: absolute;
   z-index: 1;
   right: -8%;
-  top: 0;
+  top: 10%;
 `
 
 const BigMountain = styled.img`
@@ -176,7 +176,7 @@ function Home() {
               renderLayer={percentage => (
                 <Logo
                   style={{
-                    transform: `translateY(${Math.floor(percentage * 220)}px) scale(${(percentage * 1.2).toFixed(1)})`
+                    transform: `translateY(${Math.floor(percentage * 220)}px) scale(${(percentage * 1.2).toFixed(1)})`,
                   }}
                   src="/magentalogo.png" alt="Magenta logo"
                 />
@@ -187,7 +187,8 @@ function Home() {
               className={'mountain'}
               renderLayer={percentage => (
                 <BigMountain style={{
-                  transform: `scale(${(percentage * 1.2).toFixed(1)}) translateY(${Math.floor(percentage * 150)}px)`
+                  transform: `scale(${(percentage * 1.2).toFixed(1)}) translateY(${Math.floor(percentage * 150)}px)`,
+                  opacity: (-percentage + 1.9).toFixed(1)
                 }} src="/main-mountain.png" alt="big mountain"/>
               )}
             >
@@ -233,25 +234,6 @@ function Home() {
           >
           </Parallax>
         </LowerMountain> 
-       
-        <Clouds>
-          <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
-          </CloudItem>
-          <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
-          </CloudItem>
-          <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
-          </CloudItem>        
-          <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
-          </CloudItem>
-        </Clouds>
         
         <Clouds big={true}>
           <CloudItem>

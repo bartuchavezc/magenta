@@ -4,6 +4,7 @@ import {ThemeProvider, createGlobalStyle} from 'styled-components';
 
 import Home from './Home';
 import Nav from './Nav';
+import Services from './Services';
 import WhatWeDo from './WhatWeDo';
 import { useState } from 'react';
 
@@ -84,6 +85,7 @@ function App() {
         <Nav />
         <Home />
         <WhatWeDo />
+        <Services />
       </ThemeProvider>
     </div>
   );

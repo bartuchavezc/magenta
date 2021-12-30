@@ -140,16 +140,8 @@ const Dragon = styled.img`
   transform-origin: bottom right;
 `
 
-// const BackgroundOverlay = styled.div`
-//   background: ${props => props.theme.background};
-//   height: 100%;
-//   width: 100%;
-//   position: absolute;
-//   bottom: 0;
-//   left: 0;
-// `
 
-function WhatWeDo() {
+function Services() {
   return (
     <Wrapper>
 
@@ -202,8 +194,7 @@ function WhatWeDo() {
             className={'mountain'}
             renderLayer={percentage => (
               <Dragon style={{
-                transform: `rotate(-${Math.floor(percentage * 30)}deg) translateX(-${Math.floor(percentage * 40)}%)`,
-                opacity: percentage >= 1.08 ? 0 : 0.4
+                transform: `rotate(-${Math.floor(percentage * 30)}deg) translateX(-${Math.floor(percentage * 40)}%)`
               }} src="/dragon.png" alt="dragon"/>
             )}
           >
@@ -232,11 +223,10 @@ function WhatWeDo() {
             we focus on following the <strong>developer’s career</strong> by assisting with <strong>customized tools and needs</strong> for each person: Do you wish to get better at communication skills? Do you want to focus on a set of <strong>specific technologies</strong>? Which way do you want to take your career next? We find the <strong>exact opportunity</strong> for your <strong>specific needs</strong> creating the best professional development for senior engineers who seek to reach their next level, professionally and in their lives.
           </p>
         </MainText>
-        {/* <BackgroundOverlay /> */}
       </Scene>
     </Wrapper>
 
   );
 }
 
-export default WhatWeDo;
+export default Services;
