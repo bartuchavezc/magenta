@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 `
 
 const Scene = styled.section`
-  height: calc(150vh - 117px);
+  height: calc(120vh - 117px);
   position: relative;
   width: 100%;
   display: flex;
@@ -15,15 +15,16 @@ const Scene = styled.section`
 
 const Clouds = styled.ul`
   position: absolute;
-  top: -20%;
+  top: 0;
   width: 100%;
   display: flex;
   z-index: 1;
+  opacity: 0.8;
 `
 
 const CloudItem = styled.li`
   position: relative;
-  height: 420px;
+  height: 300px;
   width: 720px;
   img {
     height: 100%;
@@ -51,8 +52,10 @@ const MainText = styled.article`
   padding: 0 20px;
   text-align: left;
   z-index: 2;
-  margin-left: 10%;
-  margin-top: 330px;
+  margin-left: auto;
+  margin-right: 10%;
+  text-align: right;
+  margin-top: 40%;
   max-width: 373px;
   font-size: 14px;
   line-height: 24px;
@@ -62,83 +65,73 @@ const MainText = styled.article`
   h2 {
     font-weight: 600;
     font-size: 32px;
-    color: #606060;
+    color: ${props => props.theme.h1};
     margin-bottom: 40px;
   }
 `
 
-const BigMountain = styled.img`
-  z-index: 2;
-  transition: .2s ease;
-  width: 100vw;
-  
-`
-const Mountain = styled.div`
+const GrassFloorContainer = styled.div`
   display: flex;
   position: absolute;
   z-index: 1;
-  right: -8%;
-  top: 0;
+  left: -10%;
+  bottom: -1%;
   width: 100%;
-  justify-content: center;
 `
 
-const LowMountain = styled.div`
+const Floor = styled.img`
+  z-index: 2;
+  transition: .2s ease;
+  will-change: transform;
+  width: 100%;
+  max-width: 800px;
+`
+
+const TreeContainer = styled.div`
   display: flex;
   position: absolute;
   z-index: 1;
-  left: 10%;
-  bottom: 10%;
+  left: -10%;
+  bottom: -1%;
   width: 100%;
-  justify-content: center;
+`
+
+const Tree = styled.img`
+  z-index: 2;
+  transition: .2s ease;
+  will-change: transform;
+  max-width: 400px;
+`
+const LilMountainContainer = styled.div`
+  display: flex;
+  position: absolute;
+  z-index: 1;
+  right: -10%;
+  top: 15%;
   transform: rotateY(-180deg);
 `
 
-const BigMountain2 = styled.img`
+const LilMountain = styled.img`
   z-index: 2;
   transition: .2s ease;
-  width: 120vw;
-  
-`
-
-
-const TailContainer = styled.figure`
-  display: flex;
-  position: absolute;
-  width: 100%;
-  justify-content: center;
-  transform: rotate(-90deg);
-  z-index: 0;
-  left: -12%;
-  top: -4%;
-`
-
-const DragonTail = styled.img`
-  z-index: 2;
-  transition: .2s ease;
-  opacity: 0.4;
   will-change: transform;
+  max-width: 400px;
 `
-
-const DragonContainer = styled.figure`
+const BoatContainer = styled.div`
   display: flex;
   position: absolute;
-  width: 100%;
-  justify-content: center;
   z-index: 1;
-  right: -12%;
-  bottom: 0%;
-  right: -54%;
-  bottom: 30%;
+  left: 40%;
+  top: 50%;
 `
 
-const Dragon = styled.img`
+const Boat = styled.img`
   z-index: 2;
-  transition: .3s ease;
-  opacity: 0.4;
+  transition: .2s ease;
   will-change: transform;
-  transform-origin: bottom right;
+  max-width: 100px;
 `
+
 
 
 function Services() {
@@ -146,17 +139,61 @@ function Services() {
     <Wrapper>
 
       <Scene>
-        <Mountain>
+        <LilMountainContainer>
+          <Parallax
+            className={'mountain'}
+            renderLayer={percentage => {
+              return(
+                <LilMountain style={{
+                  transform: `translateX(${percentage <= 0.5 && Math.floor(percentage * 40)}%)`
+                }} src="/lower-mountain.png" alt="little mountain"/>
+              )}}
+          >
+          </Parallax>
+        </LilMountainContainer>
+
+        <GrassFloorContainer>
+          <Parallax
+            className={'mountain'}
+            renderLayer={percentage => {
+              return(
+                <Floor style={{
+                  transform: `translateX(${percentage <= 0.35 && Math.floor(percentage * 40)}%)`
+                }} src="/floor.png" alt="grass floor"/>
+              )}}
+          >
+          </Parallax>
+        </GrassFloorContainer>
+
+        
+        <BoatContainer>
+          <Parallax
+            className={'mountain'}
+            renderLayer={percentage => {
+              return(
+                <Boat style={{
+                  transform: `translateX(${Math.floor(percentage * 100)}%)`,
+                  opacity:  (percentage).toFixed(1)
+                }} src="/boat.png" alt="boat"/>
+              )}}
+          >
+          </Parallax>
+        </BoatContainer>
+
+
+        
+        <TreeContainer>
           <Parallax
             className={'mountain'}
             renderLayer={percentage => (
-              <BigMountain style={{
-                transform: `translateY(${Math.floor(percentage * 40)}%)`
-              }} src="/main-mountain2.png" alt="big mountain"/>
+              <Tree style={{
+                transform: `translateX(${Math.floor(percentage * 40)}%)`
+              }} src="/tree.png" alt="tree"/>
             )}
           >
           </Parallax>
-        </Mountain>
+        </TreeContainer>
+
         <Clouds>
           <CloudItem>
             <img src="/nubes.png" alt="cloud"/>
@@ -176,52 +213,31 @@ function Services() {
           </CloudItem>
         </Clouds>
 
-        <TailContainer>
-          <Parallax
-            className={'mountain'}
-            renderLayer={percentage => (
-              <DragonTail style={{
-                transform: `translate(-${Math.floor(percentage * 50)}%, ${Math.floor(percentage * 50)}%)`
-              }} src="/dragontail.png" alt="dragon tail"/>
-            )}
-          >
-          </Parallax>
-        </TailContainer>
-
-        
-        <DragonContainer>
-          <Parallax
-            className={'mountain'}
-            renderLayer={percentage => (
-              <Dragon style={{
-                transform: `rotate(-${Math.floor(percentage * 30)}deg) translateX(-${Math.floor(percentage * 40)}%)`
-              }} src="/dragon.png" alt="dragon"/>
-            )}
-          >
-          </Parallax>
-        </DragonContainer>
-
-        <LowMountain>
-          <Parallax
-            className={'mountain'}
-            renderLayer={percentage => (
-              <BigMountain2 style={{
-                transform: `translateY(-${Math.floor(percentage * 40)}%)`
-              }} src="/main-mountain2.png" alt="big mountain"/>
-            )}
-          >
-          </Parallax>
-        </LowMountain>
-
-
 
         <MainText>
           <h2>
-            what we do
+            services
           </h2>
           <p>
-            we focus on following the <strong>developer’s career</strong> by assisting with <strong>customized tools and needs</strong> for each person: Do you wish to get better at communication skills? Do you want to focus on a set of <strong>specific technologies</strong>? Which way do you want to take your career next? We find the <strong>exact opportunity</strong> for your <strong>specific needs</strong> creating the best professional development for senior engineers who seek to reach their next level, professionally and in their lives.
+            Because we want to be a differentiated player in the market, we have <strong>boutique services</strong> that stand out by themselves:  
           </p>
+          <ul>
+            <li>
+              Software 
+            </li>
+            <li>
+              Data (Science, ML, AI, Engineering) 
+            </li>
+            <li>
+              UX/UI Design 
+            </li>
+            <li>
+              Infrastructure  
+            </li>
+            <li>
+              Cybersecurity  
+            </li>
+          </ul>
         </MainText>
       </Scene>
     </Wrapper>

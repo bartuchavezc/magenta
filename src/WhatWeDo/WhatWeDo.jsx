@@ -62,7 +62,7 @@ const MainText = styled.article`
   h2 {
     font-weight: 600;
     font-size: 32px;
-    color: #606060;
+    color: ${({theme}) => theme.h1};
     margin-bottom: 40px;
   }
 `
