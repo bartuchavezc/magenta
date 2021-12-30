@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 `
 
 const Scene = styled.section`
-  height: calc(150vh - 117px);
+  height: calc(120vh - 117px);
   position: relative;
   width: 100%;
   display: flex;
@@ -78,7 +78,7 @@ const Mountain = styled.div`
   position: absolute;
   z-index: 1;
   right: -8%;
-  top: 0;
+  top: -2%;
   width: 100%;
   justify-content: center;
 `
@@ -88,7 +88,7 @@ const LowMountain = styled.div`
   position: absolute;
   z-index: 1;
   left: 10%;
-  bottom: 10%;
+  bottom: -8%;
   width: 100%;
   justify-content: center;
   transform: rotateY(-180deg);
@@ -129,7 +129,7 @@ const DragonContainer = styled.figure`
   right: -12%;
   bottom: 0%;
   right: -54%;
-  bottom: 30%;
+  bottom: 20%;
 `
 
 const Dragon = styled.img`
