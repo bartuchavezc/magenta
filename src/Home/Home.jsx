@@ -5,11 +5,11 @@ import { Parallax } from 'react-parallax';
 import { useState } from 'react';
 
 const Main = styled.main`
-  min-height: calc(200vh - 117px);
+  min-height: calc(150vh - 117px);
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 `
 
 const Scene = styled.section`
@@ -22,7 +22,6 @@ const MainDescription = styled.article`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  /* width: 100%; */
   max-width: 420px;
   text-align: right;
   padding: 0 20px;
@@ -116,22 +115,25 @@ const Global = createGlobalStyle`
   }
   .small-mountain, .lower-mountain {
     overflow: visible !important;
-    will-change: transform;
     img {
+      will-change: transform;
       transition: 0.2s ease;
     }
   }
   .lower-mountain {
     left: -2%;
   }
+
 `
 
 const Clouds = styled.ul`
   position: absolute;
-  bottom: 0;
+  bottom: ${({big}) => big ? '-10%' : 0 };
   width: 100%;
   display: flex;
   z-index: 1;
+  transform-origin: top center;
+  transform: ${({big}) => big ? 'scale(3)' : '' };
 `
 
 const CloudItem = styled.li`
@@ -147,7 +149,7 @@ const CloudItem = styled.li`
     top: 0;
     left: -100%;
   }
-  animation: cloud 5s cubic-bezier(0.78, 0.66, 0.38, 0.3) infinite;
+  animation: cloud 4s cubic-bezier(0.78, 0.66, 0.38, 0.3) infinite;
   @keyframes cloud {
     0%{
       transform: translateX(-50%);
@@ -231,7 +233,7 @@ function Home() {
           >
           </Parallax>
         </LowerMountain> 
-
+       
         <Clouds>
           <CloudItem>
             <img src="/nubes.png" alt="cloud"/>
@@ -249,8 +251,27 @@ function Home() {
             <img src="/nubes.png" alt="cloud"/>
             <img src="/nubes.png" alt="cloud"/>
           </CloudItem>
-          
         </Clouds>
+        
+        <Clouds big={true}>
+          <CloudItem>
+            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud"/>
+          </CloudItem>
+          <CloudItem>
+            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud"/>
+          </CloudItem>
+          <CloudItem>
+            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud"/>
+          </CloudItem>        
+          <CloudItem>
+            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud"/>
+          </CloudItem>
+        </Clouds>
+
       </Scene>
 
     </Main>
