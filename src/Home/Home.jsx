@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
+import Contact from '../Contact';
 import { MainButton } from '../Nav/Nav';
 import { Parallax } from 'react-parallax';
 import { useState } from 'react';
@@ -163,9 +164,17 @@ const CloudItem = styled.li`
 `
 
 function Home() {
+  const [modal, setModal] = useState(false)
+  
+  const handleClose = () => {
+    return setModal(false)
+  }
 
   return (
     <Main>
+      {modal &&
+        <Contact closeModal={handleClose} />
+      }
       <Global />
       <Scene id="home">
         <Katakana>
@@ -203,8 +212,8 @@ function Home() {
             <Text>
             We focus on creating the best professional development for senior engineers who seek to reach their next level, professionally and in their lives.
             </Text>
-            <MainButton>
-            I want to know more
+            <MainButton onClick={() => setModal(true)}>
+              I want to know more
             </MainButton>
           </MainDescription>
         </MainMountainContainer>

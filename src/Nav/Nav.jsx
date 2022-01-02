@@ -1,4 +1,5 @@
 import AnchorLink from 'react-anchor-link-smooth-scroll'
+import Contact from '../Contact';
 import styled from 'styled-components';
 import { useState } from 'react';
 
@@ -50,7 +51,14 @@ const Logo = styled.img`
   margin-top: -25px;
 `
 
+
 function Home() {
+  
+  const [modal, setModal] = useState(false)
+  
+  const handleClose = () => {
+    return setModal(false)
+  }
 
   return (
     <Nav>
@@ -80,11 +88,14 @@ function Home() {
           our process
         </Item> */}
         <Item>
-          <MainButton>
+          <MainButton onClick={() => setModal(true)}>
             join us
           </MainButton>
         </Item>
       </Container>
+      {modal &&
+        <Contact closeModal={handleClose} />
+      }
     </Nav>
   );
 }
