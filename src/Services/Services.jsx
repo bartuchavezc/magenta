@@ -35,7 +35,7 @@ const CloudItem = styled.li`
     top: 0;
     left: -100%;
   }
-  animation: cloud 6s cubic-bezier(0.78, 0.66, 0.38, 0.3) infinite;
+  animation: cloud 20s cubic-bezier(0.78, 0.66, 0.38, 0.3) infinite;
   @keyframes cloud {
     0%{
       transform: translateX(-50%);
@@ -223,19 +223,29 @@ function Services() {
           </p>
           <ul>
             <li>
-              Software 
+              <strong>
+                Software
+              </strong> 
             </li>
             <li>
+              <strong>
               Data (Science, ML, AI, Engineering) 
+              </strong>
             </li>
             <li>
+              <strong>
               UX/UI Design 
+              </strong>
             </li>
             <li>
+              <strong>
               Infrastructure  
+              </strong>
             </li>
             <li>
+              <strong>
               Cybersecurity  
+              </strong>
             </li>
           </ul>
         </MainText>
