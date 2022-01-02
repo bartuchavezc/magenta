@@ -171,7 +171,7 @@ function Contact({closeModal}) {
         <SignUp action="https://magicenergytalent.us20.list-manage.com/subscribe/post?u=bc38f943ee787805892d4786e&amp;id=041ac4ecac" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
           <Title htmlFor="mce-EMAIL">Get in touch</Title>
           <div>
-            <input type="email" value="" name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address" required />
+            <input type="email"  name="EMAIL" className="email" id="mce-EMAIL" placeholder="email address" required />
             <input type="submit" value="Send" name="subscribe" id="mc-embedded-subscribe" className="button" />
           </div>
         </SignUp>
