@@ -225,7 +225,7 @@ function WhatWeDo() {
 
 
         <MainText>
-          <h2>
+          <h2 id="what-we-do">
             what we do
           </h2>
           <p>

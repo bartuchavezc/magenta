@@ -44,6 +44,8 @@ const Title = styled.h1`
 const Text = styled.p`
   margin-top: 24px;
   margin-bottom: 14px;
+  line-height: 22px;
+
 `
 
 const Katakana = styled.span`
@@ -165,7 +167,7 @@ function Home() {
   return (
     <Main>
       <Global />
-      <Scene>
+      <Scene id="home">
         <Katakana>
           マゼンタ
         </Katakana>
@@ -199,7 +201,7 @@ function Home() {
             where <b>talent</b> is the client
             </Title>
             <Text>
-            We focus on creating the best professional development for senior engineers who seek to reach their next level,professionally and in their lives.
+            We focus on creating the best professional development for senior engineers who seek to reach their next level, professionally and in their lives.
             </Text>
             <MainButton>
             I want to know more
