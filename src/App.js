@@ -4,6 +4,8 @@ import {ThemeProvider, createGlobalStyle} from 'styled-components';
 
 import Home from './Home';
 import Nav from './Nav';
+import Services from './Services';
+import WhatWeDo from './WhatWeDo';
 import { useState } from 'react';
 
 const GlobalStyle = createGlobalStyle`
@@ -62,6 +64,9 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 500;
     font-size: 14px;
   }
+  html {
+    scroll-behavior: smooth;
+  }
 `
 
 const mainTheme = {
@@ -79,6 +84,8 @@ function App() {
         <GlobalStyle />
         <Nav />
         <Home />
+        <WhatWeDo />
+        <Services />
       </ThemeProvider>
     </div>
   );

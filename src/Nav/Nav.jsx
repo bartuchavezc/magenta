@@ -1,3 +1,5 @@
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import Contact from '../Contact';
 import styled from 'styled-components';
 
 const Nav = styled.nav`
@@ -8,6 +10,8 @@ const Nav = styled.nav`
   position: sticky;
   top: 0;
   z-index: 9;
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 80%);
 `
 
 const Container = styled.ul`
@@ -19,9 +23,12 @@ const Item = styled.li`
   padding: 20px;
   margin: 0 40px;
   transition: 0.2s ease;
-  color: ${props => props.isActive && props.theme.main};
+  a {
+    color: ${props => props.isActive ? props.theme.main : 'black'};
+    text-decoration: none;
+  }
   &:hover {
-    color: ${props => props.theme.main}
+    color: ${props => props.theme.main};
   }
 `
 
@@ -43,22 +50,35 @@ const Logo = styled.img`
   margin-top: -25px;
 `
 
+
 function Home() {
+  
+  const [modal, setModal] = useState(false)
+  
+  const handleClose = () => {
+    return setModal(false)
+  }
 
   return (
     <Nav>
       <Container>
-        <Item isActive={true}>
-          home
+        <Item isActive={false}>
+          <AnchorLink offset="300" href="#home">
+            home
+          </AnchorLink>
         </Item>
         <Item>
-          what we do
+          <AnchorLink offset="300" href="#what-we-do">
+            what we do
+          </AnchorLink>
         </Item>
         <Item>
           <Logo src="/magentafulllogo.png" alt="Magenta logo"/>
         </Item>
         <Item>
-         our services
+          <AnchorLink offset="300" href="#our-services">
+            our services
+          </AnchorLink>
         </Item>
         {/* <Item>
           who we are
@@ -67,11 +87,14 @@ function Home() {
           our process
         </Item> */}
         <Item>
-          <MainButton>
+          <MainButton onClick={() => setModal(true)}>
             join us
           </MainButton>
         </Item>
       </Container>
+      {modal &&
+        <Contact closeModal={handleClose} />
+      }
     </Nav>
   );
 }
