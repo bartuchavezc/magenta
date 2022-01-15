@@ -47,8 +47,8 @@ export const MainButton = styled.button`
 `
 
 const Logo = styled.img`
-  height: 100px;
-  margin-top: -25px;
+  height: 60px;
+  margin-top: -5px;
 `
 
 
@@ -64,9 +64,9 @@ function Home() {
     <Nav>
       <Container>
         <Item isActive={false}>
-          <AnchorLink offset="300" href="#home">
-            home
-          </AnchorLink>
+          {/* <AnchorLink offset="300" href="#home"> */}
+            for talents
+          {/* </AnchorLink> */}
         </Item>
         <Item>
           <AnchorLink offset="300" href="#what-we-do">
@@ -74,12 +74,12 @@ function Home() {
           </AnchorLink>
         </Item>
         <Item>
-          <Logo src="/magentafulllogo.png" alt="Magenta logo"/>
+          <Logo src="/magentalogo.png" alt="Magenta logo"/>
         </Item>
         <Item>
-          <AnchorLink offset="300" href="#our-services">
-            our services
-          </AnchorLink>
+          {/* <AnchorLink offset="300" href="#our-services"> */}
+            for companies
+          {/* </AnchorLink> */}
         </Item>
         {/* <Item>
           who we are
