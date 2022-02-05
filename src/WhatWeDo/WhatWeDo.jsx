@@ -52,10 +52,11 @@ const MainText = styled.article`
   text-align: left;
   z-index: 2;
   margin-left: 10%;
-  margin-top: 330px;
   max-width: 373px;
   font-size: 14px;
   line-height: 24px;
+  margin-top: 60vh;
+  position: absolute;
   strong {
     font-weight: 600;
   }
@@ -91,7 +92,6 @@ const LowMountain = styled.div`
   bottom: -8%;
   width: 100%;
   justify-content: center;
-  transform: rotateY(-180deg);
 `
 
 const BigMountain2 = styled.img`
@@ -216,7 +216,7 @@ function WhatWeDo() {
             renderLayer={percentage => (
               <BigMountain2 style={{
                 transform: `translateY(-${Math.floor(percentage * 40)}%)`
-              }} src="/main-mountain2.png" alt="big mountain"/>
+              }} src="/main-mountain-cut.png" alt="big mountain"/>
             )}
           >
           </Parallax>
@@ -226,7 +226,7 @@ function WhatWeDo() {
 
         <MainText>
           <h2 id="what-we-do">
-            what we do
+            tired from your job?
           </h2>
           <p>
             we focus on following the <strong>developer’s career</strong> by assisting with <strong>customized tools and needs</strong> for each person: Do you wish to get better at communication skills? Do you want to focus on a set of <strong>specific technologies</strong>? Which way do you want to take your career next? We find the <strong>exact opportunity</strong> for your <strong>specific needs</strong> creating the best professional development for senior engineers who seek to reach their next level, professionally and in their lives.
