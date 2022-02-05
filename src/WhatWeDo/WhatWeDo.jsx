@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { Parallax } from 'react-parallax';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   overflow: hidden;
