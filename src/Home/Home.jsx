@@ -1,9 +1,10 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from "styled-components";
 
-import Contact from '../Contact';
-import { MainButton } from '../Nav/Nav';
-import { Parallax } from 'react-parallax';
-import { useState } from 'react';
+import Contact from "../Contact";
+import { MainButton } from "../Nav/Nav";
+import { Parallax } from "react-parallax";
+import { useState } from "react";
+import { Signature } from "../Shared/Components/Signature";
 
 const LogoContainer = styled.figure`
   display: flex;
@@ -25,13 +26,13 @@ const Main = styled.main`
   flex-wrap: wrap;
   position: relative;
   overflow: hidden;
-`
+`;
 
 const Scene = styled.section`
   height: calc(100vh - 117px);
   position: relative;
   width: 100%;
-`
+`;
 
 const MainDescription = styled.article`
   display: flex;
@@ -44,24 +45,23 @@ const MainDescription = styled.article`
   margin-left: 10%;
   position: absolute;
   top: 30%;
-`
+`;
 
 const Title = styled.h1`
   font-weight: 600;
   font-size: 32px;
-  color: ${props => props.theme.h1};
+  color: ${(props) => props.theme.h1};
   b {
-    color: ${props => props.theme.main};
+    color: ${(props) => props.theme.main};
     font-weight: 600;
   }
-`
+`;
 
 const Text = styled.p`
   margin-top: 24px;
   margin-bottom: 14px;
   line-height: 22px;
-
-`
+`;
 
 const Katakana = styled.span`
   font-size: 200px;
@@ -72,12 +72,12 @@ const Katakana = styled.span`
   width: 100%;
   justify-content: center;
   opacity: 0.5;
-`
+`;
 
 const MainMountainContainer = styled.section`
   display: flex;
   width: 100%;
-`
+`;
 
 const Mountain = styled.div`
   display: flex;
@@ -85,12 +85,12 @@ const Mountain = styled.div`
   z-index: 1;
   right: -15%;
   top: 30%;
-`
+`;
 
 const BigMountain = styled.img`
   z-index: 2;
   transition: 1s ease;
-`
+`;
 
 const LilMountain = styled.div`
   display: flex;
@@ -100,7 +100,7 @@ const LilMountain = styled.div`
   right: 0;
   margin-bottom: 150px;
   position: absolute;
-`
+`;
 
 const LowerMountain = styled.div`
   display: flex;
@@ -110,15 +110,13 @@ const LowerMountain = styled.div`
   position: absolute;
   bottom: 10%;
   left: 5%;
-`
+`;
 
 const Logo = styled.img`
   z-index: 1;
   width: 80px;
   transition: 0.2s ease;
-
-
-`
+`;
 
 const Global = createGlobalStyle`
   .logo-main-mountain {
@@ -143,17 +141,17 @@ const Global = createGlobalStyle`
     left: -2%;
   }
 
-`
+`;
 
 const Clouds = styled.ul`
   position: absolute;
-  bottom: ${({big}) => big ? '-10%' : 0 };
+  bottom: ${({ big }) => (big ? "-10%" : 0)};
   width: 100%;
   display: flex;
   z-index: 1;
   transform-origin: top center;
-  transform: ${({big}) => big ? 'scale(3)' : '' };
-`
+  transform: ${({ big }) => (big ? "scale(3)" : "")};
+`;
 
 const CloudItem = styled.li`
   position: relative;
@@ -170,122 +168,126 @@ const CloudItem = styled.li`
   }
   animation: cloud 20s cubic-bezier(0.78, 0.66, 0.38, 0.3) infinite;
   @keyframes cloud {
-    0%{
+    0% {
       transform: translateX(-50%);
     }
     100% {
       transform: translateX(-150%);
     }
   }
-`
+`;
 
 function Home() {
-  const [modal, setModal] = useState(false)
-  
+  const [modal, setModal] = useState(false);
+
   const handleClose = () => {
-    return setModal(false)
-  }
+    return setModal(false);
+  };
 
   return (
     <Main>
-      {modal &&
-        <Contact closeModal={handleClose} />
-      }
+      {modal && <Contact closeModal={handleClose} />}
       <Global />
       <Scene id="home">
-        <Katakana>
-          マゼンタ
-        </Katakana>
+        <Katakana>マゼンタ</Katakana>
         <MainMountainContainer>
           <Mountain>
             <Parallax
-              className={'mountain'}
-              renderLayer={percentage => (
+              className={"mountain"}
+              renderLayer={(percentage) => (
                 <>
                   <LogoContainer>
                     <Logo
                       style={{
-                        height: '80px',
+                        height: "80px",
                         opacity: (-percentage + 1.5).toFixed(1),
                         transform: `scale(${(percentage * 1.3).toFixed(1)})`,
-
                       }}
-                      src="/magentalogotori.png" alt="Magenta logo"
+                      src="/magentalogotori.png"
+                      alt="Magenta logo"
                     />
                   </LogoContainer>
-                  <BigMountain style={{
-                    transform: `scale(${(percentage * 1.3).toFixed(1)})`,
-                    opacity: (-percentage + 1.4).toFixed(1)
-                  }} src="/main-mountain.png" alt="big mountain"/>
+                  <BigMountain
+                    style={{
+                      transform: `scale(${(percentage * 1.3).toFixed(1)})`,
+                      opacity: (-percentage + 1.4).toFixed(1),
+                    }}
+                    src="/main-mountain.png"
+                    alt="big mountain"
+                  />
                 </>
               )}
-
-            >
-            </Parallax>
-            
+            ></Parallax>
           </Mountain>
           <MainDescription>
             <Title>
-              <strong>reach to the <i>next</i> level</strong>
+              <strong>
+                reach to the <i>next</i> level
+              </strong>
             </Title>
             <Text>
-            We focus on creating the best professional development for senior engineers who seek to reach their next level, professionally and in their lives.
+              We focus on creating the best professional development for senior
+              engineers who seek to reach their next level, professionally and
+              in their lives.
             </Text>
             <MainButton onClick={() => setModal(true)}>
               I want to know more
             </MainButton>
           </MainDescription>
         </MainMountainContainer>
-        <LilMountain   
-        >
+        <LilMountain>
           <Parallax
-            className={'small-mountain'}
-            renderLayer={percentage => (
-              <img 
+            className={"small-mountain"}
+            renderLayer={(percentage) => (
+              <img
                 style={{
-                  transform: `translateY(${Math.floor(percentage * 400)}px) translateX(${Math.floor(percentage * 400)}px)`
-                }} 
-                src="/lil-mountain.png" alt="small mountain"
+                  transform: `translateY(${Math.floor(
+                    percentage * 400
+                  )}px) translateX(${Math.floor(percentage * 400)}px)`,
+                }}
+                src="/lil-mountain.png"
+                alt="small mountain"
               />
             )}
-          >
-          </Parallax>
+          ></Parallax>
         </LilMountain>
 
         <LowerMountain>
           <Parallax
-            className={'lower-mountain'}
-            renderLayer={percentage => (
-              <img  style={{
-                transform: `translateY(${Math.floor(percentage * 400)}px) translateX(-${Math.floor(percentage * 400)}px)`
-              }} 
-              src="/lower-mountain.png" alt="lower mountain"/>
+            className={"lower-mountain"}
+            renderLayer={(percentage) => (
+              <img
+                style={{
+                  transform: `translateY(${Math.floor(
+                    percentage * 400
+                  )}px) translateX(-${Math.floor(percentage * 400)}px)`,
+                }}
+                src="/lower-mountain.png"
+                alt="lower mountain"
+              />
             )}
-          >
-          </Parallax>
-        </LowerMountain> 
-        
+          ></Parallax>
+        </LowerMountain>
+
         <Clouds big={true}>
           <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud" />
+            <img src="/nubes.png" alt="cloud" />
           </CloudItem>
           <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud" />
+            <img src="/nubes.png" alt="cloud" />
           </CloudItem>
           <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
-          </CloudItem>        
+            <img src="/nubes.png" alt="cloud" />
+            <img src="/nubes.png" alt="cloud" />
+          </CloudItem>
           <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud" />
+            <img src="/nubes.png" alt="cloud" />
           </CloudItem>
         </Clouds>
-
       </Scene>
-
     </Main>
   );
 }
