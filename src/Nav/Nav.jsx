@@ -63,22 +63,22 @@ function Home() {
   return (
     <Nav>
       <Container>
+        <Item>
+          <Logo src="/magentalogo.png" alt="Magenta logo"/>
+        </Item>
         <Item isActive={false}>
           {/* <AnchorLink offset="300" href="#home"> */}
             for talents
           {/* </AnchorLink> */}
         </Item>
         <Item>
-          <AnchorLink offset="300" href="#what-we-do">
-            what we do
-          </AnchorLink>
-        </Item>
-        <Item>
-          <Logo src="/magentalogo.png" alt="Magenta logo"/>
-        </Item>
-        <Item>
           {/* <AnchorLink offset="300" href="#our-services"> */}
             for companies
+          {/* </AnchorLink> */}
+        </Item>
+        <Item>
+          {/* <AnchorLink offset="300" href="#what-we-do"> */}
+            about us
           {/* </AnchorLink> */}
         </Item>
         {/* <Item>

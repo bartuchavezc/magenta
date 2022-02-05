@@ -5,6 +5,20 @@ import { MainButton } from '../Nav/Nav';
 import { Parallax } from 'react-parallax';
 import { useState } from 'react';
 
+const LogoContainer = styled.figure`
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: sticky;
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 20px;
+  right: 0;
+  z-index: -1;
+  margin-bottom: -130px;
+`;
+
 const Main = styled.main`
   min-height: calc(150vh - 117px);
   display: flex;
@@ -69,13 +83,13 @@ const Mountain = styled.div`
   display: flex;
   position: absolute;
   z-index: 1;
-  right: -8%;
-  top: 10%;
+  right: -15%;
+  top: 30%;
 `
 
 const BigMountain = styled.img`
   z-index: 2;
-  transition: .2s ease;
+  transition: 1s ease;
 `
 
 const LilMountain = styled.div`
@@ -102,6 +116,8 @@ const Logo = styled.img`
   z-index: 1;
   width: 80px;
   transition: 0.2s ease;
+
+
 `
 
 const Global = createGlobalStyle`
@@ -183,31 +199,34 @@ function Home() {
         <MainMountainContainer>
           <Mountain>
             <Parallax
-              className={'logo-main-mountain'}
-              renderLayer={percentage => (
-                <Logo
-                  style={{
-                    transform: `translateY(${Math.floor(percentage * 220)}px) scale(${(percentage * 1.2).toFixed(1)})`,
-                  }}
-                  src="/magentalogo.png" alt="Magenta logo"
-                />
-              )}
-            >
-            </Parallax>
-            <Parallax
               className={'mountain'}
               renderLayer={percentage => (
-                <BigMountain style={{
-                  transform: `scale(${(percentage * 1.2).toFixed(1)}) translateY(${Math.floor(percentage * 150)}px)`,
-                  opacity: (-percentage + 1.9).toFixed(1)
-                }} src="/main-mountain.png" alt="big mountain"/>
+                <>
+                  <LogoContainer>
+                    <Logo
+                      style={{
+                        height: '80px',
+                        opacity: (-percentage + 1.5).toFixed(1),
+                        transform: `scale(${(percentage * 1.3).toFixed(1)})`,
+
+                      }}
+                      src="/magentalogotori.png" alt="Magenta logo"
+                    />
+                  </LogoContainer>
+                  <BigMountain style={{
+                    transform: `scale(${(percentage * 1.3).toFixed(1)})`,
+                    opacity: (-percentage + 1.4).toFixed(1)
+                  }} src="/main-mountain.png" alt="big mountain"/>
+                </>
               )}
+
             >
             </Parallax>
+            
           </Mountain>
           <MainDescription>
             <Title>
-            where <b>talent</b> is the client
+              <strong>reach to the <i>next</i> level</strong>
             </Title>
             <Text>
             We focus on creating the best professional development for senior engineers who seek to reach their next level, professionally and in their lives.
