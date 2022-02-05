@@ -51,12 +51,12 @@ const MainText = styled.article`
   padding: 0 20px;
   text-align: left;
   z-index: 2;
-  margin-left: 10%;
   max-width: 373px;
   font-size: 14px;
   line-height: 24px;
-  margin-top: 60vh;
+  margin-top: 40%;
   position: absolute;
+  right: 10%;
   strong {
     font-weight: 600;
   }
@@ -70,15 +70,14 @@ const MainText = styled.article`
 
 const BigMountain = styled.img`
   z-index: 2;
-  transition: .2s ease;
-  width: 100vw;
-  
+  transition: .2s ease;  
+  max-width: 600px;
 `
 const Mountain = styled.div`
   display: flex;
   position: absolute;
   z-index: 1;
-  right: -8%;
+  right: -30%;
   top: -2%;
   width: 100%;
   justify-content: center;
@@ -88,17 +87,18 @@ const LowMountain = styled.div`
   display: flex;
   position: absolute;
   z-index: 1;
-  left: 10%;
-  bottom: -8%;
-  width: 100%;
+  left: 0%;
+  bottom: -5%;
   justify-content: center;
+  transform: rotateY(-180deg);
+  filter: brightness(1.1);
+  opacity: .7;
 `
 
 const BigMountain2 = styled.img`
   z-index: 2;
   transition: .2s ease;
-  width: 120vw;
-  
+  width: 70vw;
 `
 
 
@@ -109,7 +109,7 @@ const TailContainer = styled.figure`
   justify-content: center;
   transform: rotate(-90deg);
   z-index: 0;
-  left: -12%;
+  left: -2%;
   top: -4%;
 `
 
@@ -126,10 +126,11 @@ const DragonContainer = styled.figure`
   width: 100%;
   justify-content: center;
   z-index: 1;
-  right: -12%;
+  left: -55%;
   bottom: 0%;
   right: -54%;
   bottom: 20%;
+  transform: rotateY(-180deg);
 `
 
 const Dragon = styled.img`
@@ -160,7 +161,7 @@ function WhatWeDo() {
             renderLayer={percentage => (
               <BigMountain style={{
                 transform: `translateY(${Math.floor(percentage * 40)}%)`
-              }} src="/main-mountain2.png" alt="big mountain"/>
+              }} src="/main-mountain-cut.png" alt="big mountain"/>
             )}
           >
           </Parallax>
@@ -216,7 +217,7 @@ function WhatWeDo() {
             renderLayer={percentage => (
               <BigMountain2 style={{
                 transform: `translateY(-${Math.floor(percentage * 40)}%)`
-              }} src="/main-mountain-cut.png" alt="big mountain"/>
+              }} src="/main-mountain.png" alt="big mountain"/>
             )}
           >
           </Parallax>
