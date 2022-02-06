@@ -13,7 +13,6 @@ const Scene = styled.section`
 `
 
 const Clouds = styled.ul`
-  position: absolute;
   top: 0;
   width: 100%;
   display: flex;
