@@ -7,6 +7,7 @@ const Wrapper = styled.div`
 
 const Scene = styled.section`
   height: calc(120vh - 117px);
+  min-height: 750px;
   position: relative;
   width: 100%;
   display: flex;
@@ -53,7 +54,7 @@ const MainText = styled.article`
   max-width: 373px;
   font-size: 14px;
   line-height: 24px;
-  margin-top: 40%;
+  margin-top: 450px;
   position: absolute;
   right: 10%;
   strong {

@@ -7,6 +7,7 @@ const Wrapper = styled.div`
 
 const Scene = styled.section`
   height: calc(120vh - 117px);
+  min-height: 750px;
   position: relative;
   width: 100%;
   display: flex;
