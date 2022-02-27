@@ -8,6 +8,7 @@ import Nav from './Nav';
 import Services from './Services';
 import WhatWeDo from './WhatWeDo';
 import { useState } from 'react';
+import Footer from './Footer/Footer';
 
 const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -88,6 +89,7 @@ function App() {
         <Home />
         <WhatWeDo />
         <Services />
+        <Footer/>
       </ThemeProvider>
     </div>
   );
