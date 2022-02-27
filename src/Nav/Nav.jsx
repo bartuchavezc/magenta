@@ -78,7 +78,7 @@ function Home() {
         </Item>
         <Item>
           {/* <AnchorLink offset="300" href="#what-we-do"> */}
-            about us
+            community
           {/* </AnchorLink> */}
         </Item>
         {/* <Item>

@@ -15,7 +15,6 @@ const LogoContainer = styled.figure`
   margin-right: auto;
   margin-left: auto;
   padding-right: 20px;
-  right: 0;
   z-index: -1;
   margin-bottom: -130px;
 `;
@@ -82,9 +81,10 @@ const MainMountainContainer = styled.section`
 const Mountain = styled.div`
   display: flex;
   position: absolute;
+  justify-content: center;
   z-index: 1;
-  right: -15%;
-  top: 30%;
+  right: calc(50% - 902px / 2);
+  top: 0%;
 `;
 
 const BigMountain = styled.img`
@@ -114,7 +114,7 @@ const LowerMountain = styled.div`
 
 const Logo = styled.img`
   z-index: 1;
-  width: 80px;
+  width: 400px;
   transition: 0.2s ease;
 `;
 
@@ -177,7 +177,7 @@ const CloudItem = styled.li`
   }
 `;
 
-function Home() {
+function HomeCompanies() {
   const [modal, setModal] = useState(false);
 
   const handleClose = () => {
@@ -189,7 +189,6 @@ function Home() {
       {modal && <Contact closeModal={handleClose} />}
       <Global />
       <Scene id="home">
-        <Katakana>マゼンタ</Katakana>
         <MainMountainContainer>
           <Mountain>
             <Parallax
@@ -199,22 +198,13 @@ function Home() {
                   <LogoContainer>
                     <Logo
                       style={{
-                        height: "80px",
-                        opacity: (-percentage + 1.5).toFixed(1),
-                        transform: `scale(${(percentage * 1.3).toFixed(1)})`,
+                        height: "400px",
+                        transform: `scale(${(percentage * 1.5).toFixed(1)}) translateY(${(percentage * 200).toFixed(1)}px)`,
                       }}
                       src="/magentalogotori.png"
                       alt="Magenta logo"
                     />
                   </LogoContainer>
-                  <BigMountain
-                    style={{
-                      transform: `scale(${(percentage * 1.3).toFixed(1)})`,
-                      opacity: (-percentage + 1.4).toFixed(1),
-                    }}
-                    src="/main-mountain.png"
-                    alt="big mountain"
-                  />
                 </>
               )}
             ></Parallax>
@@ -222,7 +212,7 @@ function Home() {
           <MainDescription>
             <Title>
               <strong>
-                reach the <i>next</i> level
+                <strong>trascend</strong> with us
               </strong>
             </Title>
             <Text>
@@ -292,4 +282,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomeCompanies;
