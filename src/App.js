@@ -3,6 +3,7 @@ import './App.css';
 import {ThemeProvider, createGlobalStyle} from 'styled-components';
 
 import Home from './Home';
+import HomeCompanies from './HomeCompanies';
 import Nav from './Nav';
 import Services from './Services';
 import WhatWeDo from './WhatWeDo';
@@ -83,6 +84,7 @@ function App() {
       <ThemeProvider theme={actualTheme}>
         <GlobalStyle />
         <Nav />
+        {/* <HomeCompanies /> */}
         <Home />
         <WhatWeDo />
         <Services />

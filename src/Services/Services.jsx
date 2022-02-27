@@ -1,6 +1,5 @@
-import styled from 'styled-components';
-
 import { Parallax } from 'react-parallax';
+import styled from 'styled-components';
 
 const Wrapper = styled.div`
   overflow: hidden;
@@ -52,10 +51,10 @@ const MainText = styled.article`
   padding: 0 20px;
   text-align: left;
   z-index: 2;
-  margin-left: auto;
-  margin-right: 10%;
+  margin-left: 20px;
+  margin-right: auto;
   text-align: right;
-  margin-top: 40%;
+  margin-top: 40px;
   max-width: 373px;
   font-size: 14px;
   line-height: 24px;
