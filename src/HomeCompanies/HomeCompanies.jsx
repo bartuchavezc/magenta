@@ -3,7 +3,6 @@ import styled, { createGlobalStyle } from "styled-components";
 import Contact from "../Contact";
 import { MainButton } from "../Nav/Nav";
 import { Parallax } from "react-parallax";
-import { Signature } from "../Shared/Components/Signature";
 import { useState } from "react";
 
 const LogoContainer = styled.figure`
@@ -62,16 +61,16 @@ const Text = styled.p`
   line-height: 22px;
 `;
 
-const Katakana = styled.span`
-  font-size: 200px;
-  color: white;
-  margin-top: 0%;
-  z-index: 1;
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  opacity: 0.5;
-`;
+// const Katakana = styled.span`
+//   font-size: 200px;
+//   color: white;
+//   margin-top: 0%;
+//   z-index: 1;
+//   display: flex;
+//   width: 100%;
+//   justify-content: center;
+//   opacity: 0.5;
+// `;
 
 const MainMountainContainer = styled.section`
   display: flex;
@@ -87,10 +86,10 @@ const Mountain = styled.div`
   top: 0%;
 `;
 
-const BigMountain = styled.img`
-  z-index: 2;
-  transition: 1s ease;
-`;
+// const BigMountain = styled.img`
+//   z-index: 2;
+//   transition: 1s ease;
+// `;
 
 const LilMountain = styled.div`
   display: flex;
