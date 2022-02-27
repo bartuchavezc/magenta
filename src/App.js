@@ -84,10 +84,10 @@ function App() {
       <ThemeProvider theme={actualTheme}>
         <GlobalStyle />
         <Nav />
-        <HomeCompanies />
-        {/* <Home />
+        {/* <HomeCompanies /> */}
+        <Home />
         <WhatWeDo />
-        <Services /> */}
+        <Services />
       </ThemeProvider>
     </div>
   );
