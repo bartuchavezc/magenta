@@ -45,6 +45,15 @@ const MainDescription = styled.article`
   margin-left: 10%;
   position: absolute;
   top: 30%;
+  @media screen and (max-width: 990px) {
+    margin-left: 0;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    max-width: inherit;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
 `;
 
 const Title = styled.h1`
@@ -61,6 +70,9 @@ const Text = styled.p`
   margin-top: 24px;
   margin-bottom: 14px;
   line-height: 22px;
+  @media screen and (max-width: 990px) {
+    max-width: 420px;
+  }
 `;
 
 const Katakana = styled.span`
@@ -73,6 +85,10 @@ const Katakana = styled.span`
   justify-content: center;
   opacity: 0.5;
   user-select: none;
+  @media screen and (max-width: 990px) {
+    font-size: 80px;
+    margin-top: 110px;
+  }
 `;
 
 const MainMountainContainer = styled.section`
@@ -86,11 +102,19 @@ const Mountain = styled.div`
   z-index: 1;
   right: -15%;
   top: 30%;
+  @media screen and (max-width: 990px) {
+    right: 0;
+    top: 60%;
+  }
 `;
 
 const BigMountain = styled.img`
   z-index: 2;
   transition: 1s ease;
+  @media screen and (max-width: 990px) {
+    transform: scale(1) !important;
+    width: 100%;
+  }
 `;
 
 const LilMountain = styled.div`

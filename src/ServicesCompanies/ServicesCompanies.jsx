@@ -14,6 +14,7 @@ const Scene = styled.section`
 `
 
 const Clouds = styled.ul`
+  position: absolute;
   top: 0;
   width: 100%;
   display: flex;
@@ -51,10 +52,10 @@ const MainText = styled.article`
   padding: 0 20px;
   text-align: left;
   z-index: 2;
-  margin-left: auto;
-  margin-right: 10%;
+  margin-left: 10%;
+  margin-right: auto;
   text-align: right;
-  margin-top: 40%;
+  margin-top: 350px;
   max-width: 373px;
   font-size: 14px;
   line-height: 24px;
