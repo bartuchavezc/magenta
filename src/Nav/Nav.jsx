@@ -95,7 +95,7 @@ const ButtonFilter = styled.button`
     display: none;
   }
   position: fixed;
-  z-index: 10;
+  z-index: 9;
   transition: 0.3s ease;
   left: 20px;
   top: 30px;
