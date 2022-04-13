@@ -66,12 +66,30 @@ const MainText = styled.article`
     color: ${({theme}) => theme.h1};
     margin-bottom: 40px;
   }
+
+  @media screen and (max-width: 990px) {
+    right: 0;
+    margin-top: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px;
+    text-align: center;
+    align-items: center;
+    h2, p {
+      max-width: 420px;
+    }
+  }
 `
 
 const BigMountain = styled.img`
   z-index: 2;
   transition: .2s ease;  
   max-width: 600px;
+  
+  @media screen and (max-width: 990px) {
+    max-width: 90%;
+  }
 `
 const Mountain = styled.div`
   display: flex;
@@ -99,6 +117,10 @@ const BigMountain2 = styled.img`
   z-index: 2;
   transition: .2s ease;
   width: 70vw;
+
+  @media screen and (max-width: 990px) {
+    width: initial;
+  }
 `
 
 
@@ -111,6 +133,11 @@ const TailContainer = styled.figure`
   z-index: 0;
   left: -2%;
   top: -4%;
+
+  @media screen and (max-width: 990px) {
+    left: -50%;
+    top: -10%;
+  }
 `
 
 const DragonTail = styled.img`
@@ -131,6 +158,10 @@ const DragonContainer = styled.figure`
   right: -54%;
   bottom: 20%;
   transform: rotateY(-180deg);
+  @media screen and (max-width: 990px) {
+    left: -100%;
+    bottom: 25%;
+  }
 `
 
 const Dragon = styled.img`
