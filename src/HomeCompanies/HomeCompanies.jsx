@@ -17,6 +17,15 @@ const LogoContainer = styled.figure`
   right: 0;
   z-index: -1;
   margin-bottom: -130px;
+  @media screen and (max-width: 990px) {
+    padding: 0;
+    bottom: -320px;
+    position: absolute;
+    left: inherit;
+    right: inherit;
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const Main = styled.main`
@@ -177,6 +186,9 @@ const Clouds = styled.ul`
   z-index: 1;
   transform-origin: top center;
   transform: ${({ big }) => (big ? "scale(3)" : "")};
+  @media screen and (max-width: 990px) {
+    opacity: 0.85;
+  }
 `;
 
 const CloudItem = styled.li`
