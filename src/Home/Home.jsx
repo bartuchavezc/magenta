@@ -73,6 +73,7 @@ const Katakana = styled.span`
   width: 100%;
   justify-content: center;
   opacity: 0.5;
+  user-select: none;
 `;
 
 const MainMountainContainer = styled.section`

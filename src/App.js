@@ -1,10 +1,14 @@
 import './App.css';
 
+import { Route, Routes } from "react-router-dom";
 import {ThemeProvider, createGlobalStyle} from 'styled-components';
 
+import { BrowserRouter } from "react-router-dom";
+import Home from './Home';
 // import Home from './Home';
 import HomeCompanies from './HomeCompanies';
 import Nav from './Nav';
+import Services from './Services';
 import ServicesCompanies from './ServicesCompanies';
 import WhatWeDo from './WhatWeDo';
 import { useState } from 'react';
@@ -80,16 +84,30 @@ function App() {
   const [actualTheme] = useState(mainTheme)
 
   return (
-    <div className="App">
-      <ThemeProvider theme={actualTheme}>
-        <GlobalStyle />
-        <Nav />
-        <HomeCompanies />
-        {/* <Home /> */}
-        <WhatWeDo />
-        <ServicesCompanies />
-      </ThemeProvider>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <ThemeProvider theme={actualTheme}>
+          <GlobalStyle />
+          <Nav />
+          <Routes>
+            <Route path="/" element={
+              <>
+                <HomeCompanies />
+                <WhatWeDo />
+                <ServicesCompanies />
+              </>
+            } />
+            <Route path="/talents" element={
+              <>
+                <Home />
+                <WhatWeDo />
+                <Services/>
+              </>
+            } />
+          </Routes>
+        </ThemeProvider>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
+
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Contact from '../Contact';
 import styled from 'styled-components';
@@ -51,6 +54,20 @@ const Logo = styled.img`
   margin-top: -5px;
 `
 
+function CustomLink({ children, to }) {
+  let resolved = useResolvedPath(to);
+  let match = useMatch({ path: resolved.pathname, end: true });
+
+  return (
+    <Item isActive={match}>
+      <Link
+        to={to}
+      >
+        {children}
+      </Link>
+    </Item>
+  );
+}
 
 function Home() {
   
@@ -59,34 +76,28 @@ function Home() {
   const handleClose = () => {
     return setModal(false)
   }
-
+  
   return (
     <Nav>
       <Container>
         <Item>
           <Logo src="/magentalogo.png" alt="Magenta logo"/>
         </Item>
-        <Item isActive={false}>
-          {/* <AnchorLink offset="300" href="#home"> */}
-            for talents
-          {/* </AnchorLink> */}
+        <Item isActive={false}>  
+          <CustomLink to="/talents">
+            {/* <AnchorLink offset="300" href="#home"> */}
+              for talents
+            {/* </AnchorLink> */}
+          </CustomLink>
         </Item>
-        <Item>
+        <CustomLink to="/">
           {/* <AnchorLink offset="300" href="#our-services"> */}
-            for companies
+              for companies
           {/* </AnchorLink> */}
-        </Item>
-        <Item>
-          {/* <AnchorLink offset="300" href="#what-we-do"> */}
+        </CustomLink>
+        {/* <CustomLink to="/">
             community
-          {/* </AnchorLink> */}
-        </Item>
-        {/* <Item>
-          who we are
-        </Item>
-        <Item>
-          our process
-        </Item> */}
+        </CustomLink> */}
         <Item>
           <MainButton onClick={() => setModal(true)}>
             join us
