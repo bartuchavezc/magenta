@@ -34,7 +34,7 @@ const Container = styled.ul`
     flex: 1;
     max-height: 100vh;
     overflow-y: auto;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.9);
     box-shadow: 1px 0px 20px 0px #7b7b7b54;
     width: 220px;
   }

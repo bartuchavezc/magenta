@@ -11,7 +11,8 @@ const FooterContainer = styled.footer`
   background: linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 80%);
   @media screen and (max-width: 990px) {
     padding: 0 20px;
-    margin-top: -400px;
+    margin-top: -300px;
+    background: linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%);
   }
 `;
 
