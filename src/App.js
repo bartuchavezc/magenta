@@ -2,10 +2,10 @@ import './App.css';
 
 import {ThemeProvider, createGlobalStyle} from 'styled-components';
 
-import Home from './Home';
-// import HomeCompanies from './HomeCompanies';
+// import Home from './Home';
+import HomeCompanies from './HomeCompanies';
 import Nav from './Nav';
-import Services from './Services';
+import ServicesCompanies from './ServicesCompanies';
 import WhatWeDo from './WhatWeDo';
 import { useState } from 'react';
 
@@ -84,10 +84,10 @@ function App() {
       <ThemeProvider theme={actualTheme}>
         <GlobalStyle />
         <Nav />
-        {/* <HomeCompanies /> */}
-        <Home />
+        <HomeCompanies />
+        {/* <Home /> */}
         <WhatWeDo />
-        <Services />
+        <ServicesCompanies />
       </ThemeProvider>
     </div>
   );
