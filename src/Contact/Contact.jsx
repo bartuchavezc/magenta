@@ -13,6 +13,7 @@ const Modal = styled.section`
   align-items: flex-start;
   animation: fadeIn 0.5s ease;
   z-index: 9;
+  box-sizing: border-box;
   @keyframes fadeIn {
     0%{opacity: 0};
     100%{opacity: 1};

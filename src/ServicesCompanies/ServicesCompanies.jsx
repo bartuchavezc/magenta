@@ -68,6 +68,11 @@ const MainText = styled.article`
     color: ${props => props.theme.h1};
     margin-bottom: 40px;
   }
+
+  @media screen and (max-width: 990px) {
+    text-align: center;
+    margin-left: auto;
+  }
 `
 
 const GrassFloorContainer = styled.div`
@@ -109,6 +114,11 @@ const LilMountainContainer = styled.div`
   right: -10%;
   top: 15%;
   transform: rotateY(-180deg);
+
+  @media screen and (max-width: 990px) {
+    right: -40%;
+  }
+
 `
 
 const LilMountain = styled.img`
