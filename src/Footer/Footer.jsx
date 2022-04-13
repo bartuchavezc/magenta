@@ -1,8 +1,18 @@
-import styled from "styled-components";
+import Contact from '../Contact/index';
 import { Signature } from "../Shared/Components/Signature";
+import styled from "styled-components";
+import { useState } from 'react';
 
-const FooterContainer = styled.div`
+const FooterContainer = styled.footer`
   padding: 5rem 9rem 4rem 9rem;
+  z-index: 2;
+  position: relative;
+  margin-top: -443px;
+  background: linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 80%);
+  @media screen and (max-width: 990px) {
+    padding: 0 20px;
+    margin-top: -400px;
+  }
 `;
 
 const FlexContainer = styled.div`
@@ -10,6 +20,11 @@ const FlexContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 3rem 0;
+
+  @media screen and (max-width: 990px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
 `;
 
 const SignatureContainer = styled.div``;
@@ -26,59 +41,70 @@ const FooterDataContainer = styled.div`
 `;
 
 export default function Footer() {
+  const [modal, setModal] = useState(false)
+  
+  const handleClose = () => {
+    return setModal(false)
+  }
   return (
-    <FooterContainer>
-      <FlexContainer>
-        <FooterDataContainer>
-          <div style={{ padding: "12px" }}>
-            <NonDecoratedLink href="magicenergytalent.com">
+    <>
+      <FooterContainer>
+        <FlexContainer>
+          <FooterDataContainer>
+            <div style={{ padding: "12px" }}>
+              <NonDecoratedLink onClick={() => setModal(true)}>
               Lets Talk
-            </NonDecoratedLink>
-          </div>
-
-          <div style={{ display: "flex", padding: "12px" }}>
-            <p>Social media</p>
-            <span style={{ padding: "0 1rem" }}>|</span>
-            <div>
-              <NonDecoratedLink href="magicenergytalent.com" style={{ padding: "20px" }}>
-                <img
-                  style={{ width: "29px", paddingBottom: "4px" }}
-                  src="discord-6.svg"
-                  alt="discord"
-                />
-              </NonDecoratedLink>
-              <NonDecoratedLink href="magicenergytalent.com" style={{ padding: "20px" }}>
-                {" "}
-                <img
-                  style={{ width: "28px" }}
-                  src="linkedin-icon-2.svg"
-                  alt="discord"
-                />{" "}
-              </NonDecoratedLink>
-              <NonDecoratedLink href="magicenergytalent.com" style={{ padding: "20px" }}>
-                {" "}
-                <img
-                  style={{ width: "28px" }}
-                  src="instagram-2-1.svg"
-                  alt="discord"
-                />{" "}
               </NonDecoratedLink>
             </div>
-          </div>
 
-          <div style={{ padding: "12px" }}>
-            <NonDecoratedLink href="magicenergytalent.com">
-              Join our comunity
-            </NonDecoratedLink>
-          </div>
-        </FooterDataContainer>
-        <SignatureContainer>
-          <Signature color="#F7157B" width="4rem" backgroundColor="#000" />
-        </SignatureContainer>
-      </FlexContainer>
-      <p style={{ textAlign: "left", color: "#a0a0a0", padding: "12px"  }}>
+            <div style={{ display: "flex", padding: "12px" }}>
+              <p>Social media</p>
+              <span style={{ padding: "0 1rem" }}>|</span>
+              <div>
+                <NonDecoratedLink href="magicenergytalent.com" style={{ padding: "20px" }}>
+                  <img
+                    style={{ width: "29px", paddingBottom: "4px" }}
+                    src="discord-6.svg"
+                    alt="discord"
+                  />
+                </NonDecoratedLink>
+                <NonDecoratedLink href="magicenergytalent.com" style={{ padding: "20px" }}>
+                  {" "}
+                  <img
+                    style={{ width: "28px" }}
+                    src="linkedin-icon-2.svg"
+                    alt="discord"
+                  />{" "}
+                </NonDecoratedLink>
+                <NonDecoratedLink href="magicenergytalent.com" style={{ padding: "20px" }}>
+                  {" "}
+                  <img
+                    style={{ width: "28px" }}
+                    src="instagram-2-1.svg"
+                    alt="discord"
+                  />{" "}
+                </NonDecoratedLink>
+              </div>
+            </div>
+
+            <div style={{ padding: "12px" }}>
+              <NonDecoratedLink href="magicenergytalent.com">
+              Join our community
+              </NonDecoratedLink>
+            </div>
+          </FooterDataContainer>
+          <SignatureContainer>
+            <Signature color="#F7157B" width="4rem" backgroundColor="#222222" />
+          </SignatureContainer>
+        </FlexContainer>
+        <p style={{ textAlign: "left", color: "#a0a0a0", padding: "12px"  }}>
         © 2022 Vurvey. All Rights Reserved.
-      </p>
-    </FooterContainer>
+        </p>
+
+      </FooterContainer>
+      {modal &&
+        <Contact closeModal={handleClose} />
+      }
+    </>
   );
 }

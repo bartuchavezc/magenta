@@ -4,8 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import {ThemeProvider, createGlobalStyle} from 'styled-components';
 
 import { BrowserRouter } from "react-router-dom";
-// no hagas caso a esto, dejar por el momento
-// import Footer from './Footer';
+import Footer from './Footer';
 import Home from './Home';
 // import Home from './Home';
 import HomeCompanies from './HomeCompanies';
@@ -14,7 +13,6 @@ import Services from './Services';
 import ServicesCompanies from './ServicesCompanies';
 import WhatWeDo from './WhatWeDo';
 import { useState } from 'react';
-import Footer from './Footer/Footer';
 
 const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -98,7 +96,7 @@ function App() {
                 <HomeCompanies />
                 <WhatWeDo />
                 <ServicesCompanies />
-                {/* <Footer /> */}
+                <Footer />
               </>
             } />
             <Route path="/talents" element={
@@ -106,7 +104,7 @@ function App() {
                 <Home />
                 <WhatWeDo />
                 <Services/>
-                {/* <Footer /> */}
+                <Footer />
               </>
             } />
           </Routes>

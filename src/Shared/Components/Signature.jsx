@@ -10,7 +10,6 @@ Signature.propTypes = {
 };
 
 export function Signature({ width, height, backgroundColor, color, shadow, shadowColor }) {
-  console.log(backgroundColor, color);
   return (
     <svg
       width={width}
