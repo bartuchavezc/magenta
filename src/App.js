@@ -14,6 +14,7 @@ import Services from './Services';
 import ServicesCompanies from './ServicesCompanies';
 import WhatWeDo from './WhatWeDo';
 import { useState } from 'react';
+import Footer from './Footer/Footer';
 
 const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
