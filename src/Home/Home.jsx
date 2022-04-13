@@ -3,7 +3,6 @@ import styled, { createGlobalStyle } from "styled-components";
 import Contact from "../Contact";
 import { MainButton } from "../Nav/Nav";
 import { Parallax } from "react-parallax";
-import { Signature } from "../Shared/Components/Signature";
 import { useState } from "react";
 
 const LogoContainer = styled.figure`

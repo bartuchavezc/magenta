@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+// import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Contact from '../Contact';
 import styled from 'styled-components';
 import { useState } from 'react';
 
-const Nav = styled.nav`
+const NavContainer = styled.nav`
   display: flex;
   padding: 0px;
   width: 100%;
@@ -69,7 +69,7 @@ function CustomLink({ children, to }) {
   );
 }
 
-function Home() {
+function Nav() {
   
   const [modal, setModal] = useState(false)
   
@@ -78,18 +78,16 @@ function Home() {
   }
   
   return (
-    <Nav>
+    <NavContainer>
       <Container>
         <Item>
           <Logo src="/magentalogo.png" alt="Magenta logo"/>
         </Item>
-        <Item isActive={false}>  
-          <CustomLink to="/talents">
-            {/* <AnchorLink offset="300" href="#home"> */}
+        <CustomLink to="/talents">
+          {/* <AnchorLink offset="300" href="#home"> */}
               for talents
-            {/* </AnchorLink> */}
-          </CustomLink>
-        </Item>
+          {/* </AnchorLink> */}
+        </CustomLink>
         <CustomLink to="/">
           {/* <AnchorLink offset="300" href="#our-services"> */}
               for companies
@@ -107,8 +105,8 @@ function Home() {
       {modal &&
         <Contact closeModal={handleClose} />
       }
-    </Nav>
+    </NavContainer>
   );
 }
 
-export default Home;
+export default Nav;

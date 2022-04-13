@@ -4,6 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import {ThemeProvider, createGlobalStyle} from 'styled-components';
 
 import { BrowserRouter } from "react-router-dom";
+// no hagas caso a esto, dejar por el momento
+// import Footer from './Footer';
 import Home from './Home';
 // import Home from './Home';
 import HomeCompanies from './HomeCompanies';
@@ -95,6 +97,7 @@ function App() {
                 <HomeCompanies />
                 <WhatWeDo />
                 <ServicesCompanies />
+                {/* <Footer /> */}
               </>
             } />
             <Route path="/talents" element={
@@ -102,6 +105,7 @@ function App() {
                 <Home />
                 <WhatWeDo />
                 <Services/>
+                {/* <Footer /> */}
               </>
             } />
           </Routes>
