@@ -3,7 +3,6 @@ import styled, { createGlobalStyle } from "styled-components";
 import Contact from "../Contact";
 import { MainButton } from "../Nav/Nav";
 import { Parallax } from "react-parallax";
-import { Signature } from "../Shared/Components/Signature";
 import { useState } from "react";
 
 const LogoContainer = styled.figure`
@@ -73,6 +72,7 @@ const Katakana = styled.span`
   width: 100%;
   justify-content: center;
   opacity: 0.5;
+  user-select: none;
 `;
 
 const MainMountainContainer = styled.section`

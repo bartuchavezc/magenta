@@ -1,11 +1,17 @@
 import './App.css';
 
+import { Route, Routes } from "react-router-dom";
 import {ThemeProvider, createGlobalStyle} from 'styled-components';
 
+import { BrowserRouter } from "react-router-dom";
+// no hagas caso a esto, dejar por el momento
+// import Footer from './Footer';
 import Home from './Home';
-// import HomeCompanies from './HomeCompanies';
+// import Home from './Home';
+import HomeCompanies from './HomeCompanies';
 import Nav from './Nav';
 import Services from './Services';
+import ServicesCompanies from './ServicesCompanies';
 import WhatWeDo from './WhatWeDo';
 import { useState } from 'react';
 import Footer from './Footer/Footer';
@@ -81,17 +87,32 @@ function App() {
   const [actualTheme] = useState(mainTheme)
 
   return (
-    <div className="App">
-      <ThemeProvider theme={actualTheme}>
-        <GlobalStyle />
-        <Nav />
-        {/* <HomeCompanies /> */}
-        <Home />
-        <WhatWeDo />
-        <Services />
-        <Footer/>
-      </ThemeProvider>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <ThemeProvider theme={actualTheme}>
+          <GlobalStyle />
+          <Nav />
+          <Routes>
+            <Route path="/" element={
+              <>
+                <HomeCompanies />
+                <WhatWeDo />
+                <ServicesCompanies />
+                {/* <Footer /> */}
+              </>
+            } />
+            <Route path="/talents" element={
+              <>
+                <Home />
+                <WhatWeDo />
+                <Services/>
+                {/* <Footer /> */}
+              </>
+            } />
+          </Routes>
+        </ThemeProvider>
+      </div>
+    </BrowserRouter>
   );
 }
 

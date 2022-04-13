@@ -1,9 +1,12 @@
-import AnchorLink from 'react-anchor-link-smooth-scroll'
+/* eslint-disable react/prop-types */
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
+
+// import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Contact from '../Contact';
 import styled from 'styled-components';
 import { useState } from 'react';
 
-const Nav = styled.nav`
+const NavContainer = styled.nav`
   display: flex;
   padding: 0px;
   width: 100%;
@@ -51,42 +54,48 @@ const Logo = styled.img`
   margin-top: -5px;
 `
 
+function CustomLink({ children, to }) {
+  let resolved = useResolvedPath(to);
+  let match = useMatch({ path: resolved.pathname, end: true });
 
-function Home() {
+  return (
+    <Item isActive={match}>
+      <Link
+        to={to}
+      >
+        {children}
+      </Link>
+    </Item>
+  );
+}
+
+function Nav() {
   
   const [modal, setModal] = useState(false)
   
   const handleClose = () => {
     return setModal(false)
   }
-
+  
   return (
-    <Nav>
+    <NavContainer>
       <Container>
         <Item>
           <Logo src="/magentalogo.png" alt="Magenta logo"/>
         </Item>
-        <Item isActive={false}>
+        <CustomLink to="/talents">
           {/* <AnchorLink offset="300" href="#home"> */}
-            for talents
+              for talents
           {/* </AnchorLink> */}
-        </Item>
-        <Item>
+        </CustomLink>
+        <CustomLink to="/">
           {/* <AnchorLink offset="300" href="#our-services"> */}
-            for companies
+              for companies
           {/* </AnchorLink> */}
-        </Item>
-        <Item>
-          {/* <AnchorLink offset="300" href="#what-we-do"> */}
+        </CustomLink>
+        {/* <CustomLink to="/">
             community
-          {/* </AnchorLink> */}
-        </Item>
-        {/* <Item>
-          who we are
-        </Item>
-        <Item>
-          our process
-        </Item> */}
+        </CustomLink> */}
         <Item>
           <MainButton onClick={() => setModal(true)}>
             join us
@@ -96,8 +105,8 @@ function Home() {
       {modal &&
         <Contact closeModal={handleClose} />
       }
-    </Nav>
+    </NavContainer>
   );
 }
 
-export default Home;
+export default Nav;

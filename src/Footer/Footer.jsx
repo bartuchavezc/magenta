@@ -76,7 +76,7 @@ export default function Footer() {
           <Signature color="#F7157B" width="4rem" backgroundColor="#000" />
         </SignatureContainer>
       </FlexContainer>
-      <p style={{ textAlign: "left", color: "#a0a0a0", padding: "12px" }}>
+      <p style={{ textAlign: "left", color: "#a0a0a0", padding: "12px"  }}>
         © 2022 Vurvey. All Rights Reserved.
       </p>
     </FooterContainer>
