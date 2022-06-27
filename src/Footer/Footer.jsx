@@ -99,7 +99,7 @@ export default function Footer() {
           </SignatureContainer>
         </FlexContainer>
         <p style={{ textAlign: "left", color: "#a0a0a0", padding: "12px"  }}>
-        © 2022 Vurvey. All Rights Reserved.
+        © 2022 Magenta. All Rights Reserved.
         </p>
 
       </FooterContainer>
