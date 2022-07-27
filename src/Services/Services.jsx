@@ -1,9 +1,9 @@
-import { Parallax } from 'react-parallax';
-import styled from 'styled-components';
+import { Parallax } from "react-parallax";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   overflow: hidden;
-`
+`;
 
 const Scene = styled.section`
   height: calc(120vh - 117px);
@@ -11,7 +11,7 @@ const Scene = styled.section`
   position: relative;
   width: 100%;
   display: flex;
-`
+`;
 
 const Clouds = styled.ul`
   position: absolute;
@@ -20,7 +20,7 @@ const Clouds = styled.ul`
   display: flex;
   z-index: 1;
   opacity: 0.8;
-`
+`;
 
 const CloudItem = styled.li`
   position: relative;
@@ -37,14 +37,14 @@ const CloudItem = styled.li`
   }
   animation: cloud 20s cubic-bezier(0.78, 0.66, 0.38, 0.3) infinite;
   @keyframes cloud {
-    0%{
+    0% {
       transform: translateX(-50%);
     }
     100% {
       transform: translateX(-150%);
     }
   }
-`
+`;
 
 const MainText = styled.article`
   display: flex;
@@ -65,14 +65,14 @@ const MainText = styled.article`
   h2 {
     font-weight: 600;
     font-size: 32px;
-    color: ${props => props.theme.h1};
+    color: ${(props) => props.theme.h1};
     margin-bottom: 40px;
   }
   @media screen and (max-width: 990px) {
     text-align: center;
     margin-left: auto;
   }
-`
+`;
 
 const GrassFloorContainer = styled.div`
   display: flex;
@@ -81,15 +81,15 @@ const GrassFloorContainer = styled.div`
   left: -10%;
   bottom: -1%;
   width: 100%;
-`
+`;
 
 const Floor = styled.img`
   z-index: 2;
-  transition: .2s ease;
+  transition: 0.2s ease;
   will-change: transform;
   width: 100%;
   max-width: 800px;
-`
+`;
 
 const TreeContainer = styled.div`
   display: flex;
@@ -98,14 +98,14 @@ const TreeContainer = styled.div`
   left: -10%;
   bottom: -1%;
   width: 100%;
-`
+`;
 
 const Tree = styled.img`
   z-index: 2;
-  transition: .2s ease;
+  transition: 0.2s ease;
   will-change: transform;
   max-width: 400px;
-`
+`;
 const LilMountainContainer = styled.div`
   display: flex;
   position: absolute;
@@ -117,149 +117,77 @@ const LilMountainContainer = styled.div`
   @media screen and (max-width: 990px) {
     right: -40%;
   }
-`
+`;
 
 const LilMountain = styled.img`
   z-index: 2;
-  transition: .2s ease;
+  transition: 0.2s ease;
   will-change: transform;
   max-width: 400px;
-`
+`;
 const BoatContainer = styled.div`
   display: flex;
   position: absolute;
   z-index: 1;
   left: 40%;
   top: 50%;
-`
+`;
 
 const Boat = styled.img`
   z-index: 2;
-  transition: .2s ease;
+  transition: 0.2s ease;
   will-change: transform;
   max-width: 100px;
-`
-
-
+`;
 
 function Services() {
   return (
     <Wrapper>
-
       <Scene>
-        <LilMountainContainer>
-          <Parallax
-            className={'mountain'}
-            renderLayer={percentage => {
-              return(
-                <LilMountain style={{
-                  transform: `translateX(${percentage <= 0.5 && Math.floor(percentage * 40)}%)`
-                }} src="/lower-mountain.png" alt="little mountain"/>
-              )}}
-          >
-          </Parallax>
-        </LilMountainContainer>
-
-        <GrassFloorContainer>
-          <Parallax
-            className={'mountain'}
-            renderLayer={percentage => {
-              return(
-                <Floor style={{
-                  transform: `translateX(${percentage <= 0.35 && Math.floor(percentage * 40)}%)`
-                }} src="/floor.png" alt="grass floor"/>
-              )}}
-          >
-          </Parallax>
-        </GrassFloorContainer>
-
-        
-        <BoatContainer>
-          <Parallax
-            className={'mountain'}
-            renderLayer={percentage => {
-              return(
-                <Boat style={{
-                  transform: `translateX(${Math.floor(percentage * 100)}%)`,
-                  opacity:  (percentage).toFixed(1)
-                }} src="/boat.png" alt="boat"/>
-              )}}
-          >
-          </Parallax>
-        </BoatContainer>
-
-
-        
-        <TreeContainer>
-          <Parallax
-            className={'mountain'}
-            renderLayer={percentage => (
-              <Tree style={{
-                transform: `translateX(${Math.floor(percentage * 40)}%)`
-              }} src="/tree.png" alt="tree"/>
-            )}
-          >
-          </Parallax>
-        </TreeContainer>
-
         <Clouds>
           <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud" />
+            <img src="/nubes.png" alt="cloud" />
           </CloudItem>
           <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud" />
+            <img src="/nubes.png" alt="cloud" />
           </CloudItem>
           <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
-          </CloudItem>        
+            <img src="/nubes.png" alt="cloud" />
+            <img src="/nubes.png" alt="cloud" />
+          </CloudItem>
           <CloudItem>
-            <img src="/nubes.png" alt="cloud"/>
-            <img src="/nubes.png" alt="cloud"/>
+            <img src="/nubes.png" alt="cloud" />
+            <img src="/nubes.png" alt="cloud" />
           </CloudItem>
         </Clouds>
-
-
         <MainText>
-          <h2 id="our-services">
-            services
-          </h2>
+          <h2 id="our-services">services</h2>
           <p>
-            Because we want to be a differentiated player in the market, we have <strong>boutique services</strong> that stand out by themselves:  
+            Because we want to be a differentiated player in the market, we have{" "}
+            <strong>boutique services</strong> that stand out by themselves:
           </p>
           <ul>
             <li>
-              <strong>
-                Software
-              </strong> 
+              <strong>Software</strong>
             </li>
             <li>
-              <strong>
-              Data (Science, ML, AI, Engineering) 
-              </strong>
+              <strong>Data (Science, ML, AI, Engineering)</strong>
             </li>
             <li>
-              <strong>
-              UX/UI Design 
-              </strong>
+              <strong>UX/UI Design</strong>
             </li>
             <li>
-              <strong>
-              Infrastructure  
-              </strong>
+              <strong>Infrastructure</strong>
             </li>
             <li>
-              <strong>
-              Cybersecurity  
-              </strong>
+              <strong>Cybersecurity</strong>
             </li>
           </ul>
         </MainText>
       </Scene>
     </Wrapper>
-
   );
 }
 

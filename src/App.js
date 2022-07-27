@@ -1,7 +1,7 @@
 import './App.css';
 
 import { Route, Routes } from "react-router-dom";
-import {ThemeProvider, createGlobalStyle} from 'styled-components';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 import { BrowserRouter } from "react-router-dom";
 import Footer from './Footer';
@@ -13,6 +13,7 @@ import Services from './Services';
 import ServicesCompanies from './ServicesCompanies';
 import WhatWeDo from './WhatWeDo';
 import { useState } from 'react';
+import Benefits from './Talents/Benefits';
 
 const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -89,9 +90,10 @@ function App() {
       <div className="App">
         <ThemeProvider theme={actualTheme}>
           <GlobalStyle />
+          <Home />
           <Nav />
           <Routes>
-            <Route path="/" element={
+            <Route path="/companies" element={
               <>
                 <HomeCompanies />
                 <WhatWeDo />
@@ -99,11 +101,11 @@ function App() {
                 <Footer />
               </>
             } />
-            <Route path="/talents" element={
+            <Route path="/" element={
               <>
-                <Home />
                 <WhatWeDo />
-                <Services/>
+                <Benefits />
+                <Services />
                 <Footer />
               </>
             } />

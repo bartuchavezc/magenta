@@ -15,11 +15,11 @@ const NavContainer = styled.nav`
   top: 0;
   z-index: 9;
   background: rgb(255, 255, 255);
-  background: linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 1) 80%
-  );
+  // background: linear-gradient(
+  //   0deg,
+  //   rgba(255, 255, 255, 0) 0%,
+  //   rgba(255, 255, 255, 1) 80%
+  // );
 `;
 
 const Container = styled.ul`
@@ -166,12 +166,6 @@ function CustomLink({ children, to, parentPath }) {
 }
 
 function Nav() {
-  const [modal, setModal] = useState(false);
-
-  const handleClose = () => {
-    return setModal(false);
-  };
-
   const [isOpen, setIsOpen] = useState(true);
   return (
     <NavContainer>
@@ -179,15 +173,8 @@ function Nav() {
         <Menu src="menu.svg" isHidden={isOpen} />
         <Cross src="cross.svg" isHidden={isOpen} />
       </ButtonFilter>
-      {/* <LogoContainer>
-        <FullLogo
-          isBlurred={!isOpen}
-          src="/magentafulllogo.png"
-          alt="Magenta logo"
-        />
-      </LogoContainer> */}
       <Container isHidden={isOpen}>
-        <CustomLink to="/talents">For talent</CustomLink>
+        <CustomLink to="/">For talent</CustomLink>
         <CustomLink to="/benefits" parentPath="/talents">
           Benefits
         </CustomLink>
@@ -200,20 +187,19 @@ function Nav() {
         <Item>
           <Logo src="/magentalogo.png" alt="Magenta logo" />
         </Item>
-        <CustomLink to="/services" parentPath="/">
+        <CustomLink to="/services" parentPath="/companies">
           Services
         </CustomLink>
-        <CustomLink to="/talent-pool" parentPath="/">
+        <CustomLink to="/talent-pool" parentPath="/companies">
           Talent pool
         </CustomLink>
-        <CustomLink to="/tech-stack" parentPath="/">
+        <CustomLink to="/tech-stack" parentPath="/companies">
           Tech stack
         </CustomLink>
-        <CustomLink to="/" parentPath="/">
+        <CustomLink to="/companies">
           For companies
         </CustomLink>
       </Container>
-      {modal && <Contact closeModal={handleClose} />}
     </NavContainer>
   );
 }

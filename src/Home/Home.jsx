@@ -1,9 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-import Contact from "../Contact";
-import { MainButton } from "../Nav/Nav";
-import { Parallax } from "react-parallax";
 import { useState } from "react";
+import Nav from "../Nav";
 
 const LogoContainer = styled.figure`
   display: flex;
@@ -223,89 +221,25 @@ function Home() {
 
   return (
     <Main>
-      {modal && <Contact closeModal={handleClose} />}
       <Global />
       <Scene id="home">
-        <Katakana>マゼンタ</Katakana>
-        <MainMountainContainer>
-          <Mountain>
-            <Parallax
-              className={"mountain"}
-              renderLayer={(percentage) => (
-                <>
-                  <LogoContainer>
-                    <Logo
-                      style={{
-                        height: "80px",
-                        opacity: (-percentage + 1.5).toFixed(1),
-                        transform: `scale(${(percentage * 1.3).toFixed(1)})`,
-                      }}
-                      src="/magentalogotori.png"
-                      alt="Magenta logo"
-                    />
-                  </LogoContainer>
-                  <BigMountain
-                    style={{
-                      transform: `scale(${(percentage * 1.3).toFixed(1)})`,
-                      opacity: (-percentage + 1.4).toFixed(1),
-                    }}
-                    src="/main-mountain.png"
-                    alt="big mountain"
-                  />
-                </>
-              )}
-            ></Parallax>
-          </Mountain>
-          <MainDescription>
-            <Title>
-              <strong>
-                reach the <i>next</i> level
-              </strong>
-            </Title>
-            <Text>
-              We focus on creating the best professional development for senior
-              engineers who seek to reach their next level, professionally and
-              in their lives.
-            </Text>
-            <MainButton onClick={() => setModal(true)}>
-              I want to know more
-            </MainButton>
-          </MainDescription>
-        </MainMountainContainer>
-        <LilMountain>
-          <Parallax
-            className={"small-mountain"}
-            renderLayer={(percentage) => (
-              <img
-                style={{
-                  transform: `translateY(${Math.floor(
-                    percentage * 400
-                  )}px) translateX(${Math.floor(percentage * 400)}px)`,
-                }}
-                src="/lil-mountain.png"
-                alt="small mountain"
-              />
-            )}
-          ></Parallax>
-        </LilMountain>
-
-        <LowerMountain>
-          <Parallax
-            className={"lower-mountain"}
-            renderLayer={(percentage) => (
-              <img
-                style={{
-                  transform: `translateY(${Math.floor(
-                    percentage * 400
-                  )}px) translateX(-${Math.floor(percentage * 400)}px)`,
-                }}
-                src="/lower-mountain.png"
-                alt="lower mountain"
-              />
-            )}
-          ></Parallax>
-        </LowerMountain>
-
+        {/* <Katakana>マゼンタ</Katakana> */}
+        <div
+          style={{
+            width: "100%",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <img src="/magentafulllogo.png" style={{ width: "35vw" }} />
+            <h1 style={{ fontSize: "3rem", fontWeight: "lighter" }}>
+              {"Latin America's house of Talent"}
+            </h1>
+          </div>
+        </div>
         <Clouds big={true}>
           <CloudItem>
             <img src="/nubes.png" alt="cloud" />
