@@ -16,6 +16,12 @@ const Scene = styled.section`
   display: flex;
 `;
 
+const ShortScene = styled.section`
+  position: relative;
+  width: 100%;
+  display: flex;
+`;
+
 const MainText = styled.article`
   width: 100%;
   display: flex;
@@ -23,6 +29,46 @@ const MainText = styled.article`
   justify-content: center;
   align-items: center;
   padding: 0 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 50%
+  );
+  line-height: 1.6rem;
+  strong {
+    font-weight: 600;
+  }
+  h2 {
+    width: 50vw;
+    font-weight: 600;
+    font-size: 32px;
+    color: ${({ theme }) => theme.h1};
+    margin-bottom: 40px;
+    span {
+      color: ${(props) => props.theme.main};
+    }
+  }
+  p {
+    text-align: center;
+    width: 50vw;
+    font-size: 24px;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 990px) {
+    box-sizing: border-box;
+    padding: 0 10px;
+  }
+`;
+
+const MainTextWhite = styled.article`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  background: #fff;
   line-height: 1.6rem;
   strong {
     font-weight: 600;
@@ -76,16 +122,8 @@ function WhatWeDo() {
           <LilMountain marginBottom="300px" position="auto">
             <Parallax
               className={"small-mountain"}
-              renderLayer={(percentage) => (
-                <img
-                  // style={{
-                  //   transform: `translateY(${Math.floor(
-                  //     percentage * 400
-                  //   )}px) translateX(${Math.floor(percentage * 400)}px)`,
-                  // }}
-                  src="/lil-mountain.png"
-                  alt="small mountain"
-                />
+              renderLayer={() => (
+                <img src="/lil-mountain.png" alt="small mountain" />
               )}
             ></Parallax>
           </LilMountain>
@@ -107,34 +145,15 @@ function WhatWeDo() {
               <img src="/nubes.png" alt="cloud" />
             </CloudItem>
           </Clouds>
-          {/* to do: set clouds and parallax */}
+        </MainText>
+      </Scene>
+      <ShortScene>
+        <MainTextWhite>
           <h2 id="talents">Reach the next level.</h2>
           <p>
             Work on your ideal job by doing what you love, We take care of the
             rest.
           </p>
-        </MainText>
-        <Clouds big={true} bottom={"auto"}>
-          <CloudItem>
-            <img src="/nubes.png" alt="cloud" />
-            <img src="/nubes.png" alt="cloud" />
-          </CloudItem>
-          <CloudItem>
-            <img src="/nubes.png" alt="cloud" />
-            <img src="/nubes.png" alt="cloud" />
-          </CloudItem>
-          <CloudItem>
-            <img src="/nubes.png" alt="cloud" />
-            <img src="/nubes.png" alt="cloud" />
-          </CloudItem>
-          <CloudItem>
-            <img src="/nubes.png" alt="cloud" />
-            <img src="/nubes.png" alt="cloud" />
-          </CloudItem>
-        </Clouds>
-      </Scene>
-      <Scene>
-        <MainText>
           <h2 id="talents" style={{ textAlign: "left" }}>
             Your current job doesn&apos;t <span> fill </span> you?
           </h2>
@@ -143,20 +162,26 @@ function WhatWeDo() {
             outstanding people who seek to reach the next level, professionally
             and in their lives.
           </p>
-        </MainText>
-      </Scene>
-      <Scene>
-        <MainText>
-          <h2 id="talents" style={{ textAlign: "right" }}>
-            Don&apos;t waste your <span>talent</span>!
-          </h2>
-          <p style={{ textAlign: "right" }}>
-            We find the exact opportunity for your specific needs, So you
-            don&apos;t need to worry about wasting time looking For a fair pay,
-            goals-oriented and challenging job.
-          </p>
-        </MainText>
-      </Scene>
+        </MainTextWhite>
+      </ShortScene>
+      {/* <Clouds bottom={"auto"}>
+        <CloudItem>
+          <img src="/nubes.png" alt="cloud" />
+          <img src="/nubes.png" alt="cloud" />
+        </CloudItem>
+        <CloudItem>
+          <img src="/nubes.png" alt="cloud" />
+          <img src="/nubes.png" alt="cloud" />
+        </CloudItem>
+        <CloudItem>
+          <img src="/nubes.png" alt="cloud" />
+          <img src="/nubes.png" alt="cloud" />
+        </CloudItem>
+        <CloudItem>
+          <img src="/nubes.png" alt="cloud" />
+          <img src="/nubes.png" alt="cloud" />
+        </CloudItem>
+      </Clouds> */}
     </Wrapper>
   );
 }

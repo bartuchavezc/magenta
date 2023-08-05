@@ -1,4 +1,3 @@
-import { Parallax } from "react-parallax";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -74,71 +73,71 @@ const MainText = styled.article`
   }
 `;
 
-const GrassFloorContainer = styled.div`
-  display: flex;
-  position: absolute;
-  z-index: 1;
-  left: -10%;
-  bottom: -1%;
-  width: 100%;
-`;
+// const GrassFloorContainer = styled.div`
+//   display: flex;
+//   position: absolute;
+//   z-index: 1;
+//   left: -10%;
+//   bottom: -1%;
+//   width: 100%;
+// `;
 
-const Floor = styled.img`
-  z-index: 2;
-  transition: 0.2s ease;
-  will-change: transform;
-  width: 100%;
-  max-width: 800px;
-`;
+// const Floor = styled.img`
+//   z-index: 2;
+//   transition: 0.2s ease;
+//   will-change: transform;
+//   width: 100%;
+//   max-width: 800px;
+// `;
 
-const TreeContainer = styled.div`
-  display: flex;
-  position: absolute;
-  z-index: 1;
-  left: -10%;
-  bottom: -1%;
-  width: 100%;
-`;
+// const TreeContainer = styled.div`
+//   display: flex;
+//   position: absolute;
+//   z-index: 1;
+//   left: -10%;
+//   bottom: -1%;
+//   width: 100%;
+// `;
 
-const Tree = styled.img`
-  z-index: 2;
-  transition: 0.2s ease;
-  will-change: transform;
-  max-width: 400px;
-`;
-const LilMountainContainer = styled.div`
-  display: flex;
-  position: absolute;
-  z-index: 1;
-  right: -10%;
-  top: 15%;
-  transform: rotateY(-180deg);
+// const Tree = styled.img`
+//   z-index: 2;
+//   transition: 0.2s ease;
+//   will-change: transform;
+//   max-width: 400px;
+// `;
+// const LilMountainContainer = styled.div`
+//   display: flex;
+//   position: absolute;
+//   z-index: 1;
+//   right: -10%;
+//   top: 15%;
+//   transform: rotateY(-180deg);
 
-  @media screen and (max-width: 990px) {
-    right: -40%;
-  }
-`;
+//   @media screen and (max-width: 990px) {
+//     right: -40%;
+//   }
+// `;
 
-const LilMountain = styled.img`
-  z-index: 2;
-  transition: 0.2s ease;
-  will-change: transform;
-  max-width: 400px;
-`;
-const BoatContainer = styled.div`
-  display: flex;
-  position: absolute;
-  z-index: 1;
-  left: 40%;
-  top: 50%;
-`;
+// const LilMountain = styled.img`
+//   z-index: 2;
+//   transition: 0.2s ease;
+//   will-change: transform;
+//   max-width: 400px;
+// `;
+// const BoatContainer = styled.div`
+//   display: flex;
+//   position: absolute;
+//   z-index: 1;
+//   left: 40%;
+//   top: 50%;
+// `;
 
-const Boat = styled.img`
-  z-index: 2;
-  transition: 0.2s ease;
-  will-change: transform;
-  max-width: 100px;
-`;
+// const Boat = styled.img`
+//   z-index: 2;
+//   transition: 0.2s ease;
+//   will-change: transform;
+//   max-width: 100px;
+// `;
 
 function Services() {
   return (

@@ -2,7 +2,6 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
 // import AnchorLink from 'react-anchor-link-smooth-scroll'
-import Contact from "../Contact";
 import styled from "styled-components";
 import { useState } from "react";
 
@@ -87,11 +86,11 @@ const Logo = styled.img`
   margin-top: -5px;
 `;
 
-const FullLogo = styled.img`
-  height: 100px;
-  transition: 0.3s ease;
-  filter: ${({ isBlurred }) => (isBlurred ? "blur(20px)" : "")};
-`;
+// const FullLogo = styled.img`
+//   height: 100px;
+//   transition: 0.3s ease;
+//   filter: ${({ isBlurred }) => (isBlurred ? "blur(20px)" : "")};
+// `;
 
 const ButtonFilter = styled.button`
   @media screen and (min-width: 990px) {
@@ -130,23 +129,23 @@ const Cross = styled.img`
   position: absolute;
 `;
 
-const LogoContainer = styled.figure`
-  display: none;
-  @media screen and (max-width: 990px) {
-    display: flex;
-    position: fixed;
-    width: 100%;
-    justify-content: center;
-    top: -5px;
-    left: 0;
-    transition: 0.3s ease;
-    background: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 1) 70%
-    );
-  }
-`;
+// const LogoContainer = styled.figure`
+//   display: none;
+//   @media screen and (max-width: 990px) {
+//     display: flex;
+//     position: fixed;
+//     width: 100%;
+//     justify-content: center;
+//     top: -5px;
+//     left: 0;
+//     transition: 0.3s ease;
+//     background: linear-gradient(
+//       0deg,
+//       rgba(255, 255, 255, 0) 0%,
+//       rgba(255, 255, 255, 1) 70%
+//     );
+//   }
+// `;
 
 function CustomLink({ children, to, parentPath }) {
   let resolved = useResolvedPath(to);

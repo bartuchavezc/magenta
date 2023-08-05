@@ -1,18 +1,27 @@
-import Contact from '../Contact/index';
+import Contact from "../Contact/index";
 import { Signature } from "../Shared/Components/Signature";
 import styled from "styled-components";
-import { useState } from 'react';
+import { useState } from "react";
+import Iframe from "react-iframe";
 
 const FooterContainer = styled.footer`
   padding: 5rem 9rem 4rem 9rem;
   z-index: 2;
   position: relative;
-  margin-top: -443px;
-  background: linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 80%);
+  // margin-top: -443px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 1) 80%
+  );
   @media screen and (max-width: 990px) {
     padding: 0 20px;
-    margin-top: -300px;
-    background: linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%);
+    // margin-top: -300px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 1) 50%
+    );
   }
 `;
 
@@ -42,19 +51,30 @@ const FooterDataContainer = styled.div`
 `;
 
 export default function Footer() {
-  const [modal, setModal] = useState(false)
-  
+  const [modal, setModal] = useState(false);
+
   const handleClose = () => {
-    return setModal(false)
-  }
+    return setModal(false);
+  };
+  //<script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script><iframe class="airtable-embed airtable-dynamic-height" src="https://airtable.com/embed/app5iGrQT7xYzcBp8/shrrAfk2TXeVRfoRi?backgroundColor=blue" frameborder="0" onmousewheel="" width="100%" height="612" style="background: transparent; border: 1px solid #ccc;"></iframe>
   return (
     <>
       <FooterContainer>
+        <Iframe
+          url="https://airtable.com/embed/app5iGrQT7xYzcBp8/shrrAfk2TXeVRfoRi?backgroundColor=blue"
+          id=""
+          className="airtable-embed"
+          frameborder="0"
+          display="block"
+          width="100%"
+          height="612"
+          style="background: transparent; border: 1px solid #ccc;margin-top: 2rem;"
+        />
         <FlexContainer>
           <FooterDataContainer>
             <div style={{ padding: "12px" }}>
               <NonDecoratedLink onClick={() => setModal(true)}>
-              Lets Talk
+                Lets Talk
               </NonDecoratedLink>
             </div>
 
@@ -62,14 +82,20 @@ export default function Footer() {
               <p>Social media</p>
               <span style={{ padding: "0 1rem" }}>|</span>
               <div>
-                <NonDecoratedLink href="magicenergytalent.com" style={{ padding: "20px" }}>
+                <NonDecoratedLink
+                  href="magicenergytalent.com"
+                  style={{ padding: "20px" }}
+                >
                   <img
                     style={{ width: "29px", paddingBottom: "4px" }}
                     src="discord-6.svg"
                     alt="discord"
                   />
                 </NonDecoratedLink>
-                <NonDecoratedLink href="magicenergytalent.com" style={{ padding: "20px" }}>
+                <NonDecoratedLink
+                  href="magicenergytalent.com"
+                  style={{ padding: "20px" }}
+                >
                   {" "}
                   <img
                     style={{ width: "28px" }}
@@ -77,7 +103,10 @@ export default function Footer() {
                     alt="discord"
                   />{" "}
                 </NonDecoratedLink>
-                <NonDecoratedLink href="magicenergytalent.com" style={{ padding: "20px" }}>
+                <NonDecoratedLink
+                  href="magicenergytalent.com"
+                  style={{ padding: "20px" }}
+                >
                   {" "}
                   <img
                     style={{ width: "28px" }}
@@ -90,7 +119,7 @@ export default function Footer() {
 
             <div style={{ padding: "12px" }}>
               <NonDecoratedLink href="magicenergytalent.com">
-              Join our community
+                Join our community
               </NonDecoratedLink>
             </div>
           </FooterDataContainer>
@@ -98,14 +127,11 @@ export default function Footer() {
             <Signature color="#F7157B" width="4rem" backgroundColor="#222222" />
           </SignatureContainer>
         </FlexContainer>
-        <p style={{ textAlign: "left", color: "#a0a0a0", padding: "12px"  }}>
-        © 2022 Magenta. All Rights Reserved.
+        <p style={{ textAlign: "left", color: "#a0a0a0", padding: "12px" }}>
+          © 2022 Magenta. All Rights Reserved.
         </p>
-
       </FooterContainer>
-      {modal &&
-        <Contact closeModal={handleClose} />
-      }
+      {modal && <Contact closeModal={handleClose} />}
     </>
   );
 }

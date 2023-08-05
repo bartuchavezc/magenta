@@ -1,19 +1,18 @@
 import './App.css';
 
-import { Route, Routes } from "react-router-dom";
+// import { Route, Router } from "react-router-dom";
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-
 import { BrowserRouter } from "react-router-dom";
 import Footer from './Footer';
 import Home from './Home';
 // import Home from './Home';
-import HomeCompanies from './HomeCompanies';
-import Nav from './Nav';
-import Services from './Services';
-import ServicesCompanies from './ServicesCompanies';
+
+
+// import Services from './Services';
+
 import WhatWeDo from './WhatWeDo';
 import { useState } from 'react';
-import Benefits from './Talents/Benefits';
+// import Benefits from './Talents/Benefits';
 
 const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -91,25 +90,8 @@ function App() {
         <ThemeProvider theme={actualTheme}>
           <GlobalStyle />
           <Home />
-          <Nav />
-          <Routes>
-            <Route path="/companies" element={
-              <>
-                <HomeCompanies />
-                <WhatWeDo />
-                <ServicesCompanies />
-                <Footer />
-              </>
-            } />
-            <Route path="/" element={
-              <>
-                <WhatWeDo />
-                <Benefits />
-                <Services />
-                <Footer />
-              </>
-            } />
-          </Routes>
+          <WhatWeDo />
+          <Footer />
         </ThemeProvider>
       </div>
     </BrowserRouter>
